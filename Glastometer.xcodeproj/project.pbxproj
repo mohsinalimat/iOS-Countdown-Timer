@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D85AF25919E2B4EC00F140CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AF25819E2B4EC00F140CC /* AppDelegate.swift */; };
+		D85AF25B19E2B4EC00F140CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AF25A19E2B4EC00F140CC /* ViewController.swift */; };
+		D85AF25E19E2B4EC00F140CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85AF25C19E2B4EC00F140CC /* Main.storyboard */; };
+		D85AF26019E2B4EC00F140CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85AF25F19E2B4EC00F140CC /* Images.xcassets */; };
+		D85AF26319E2B4EC00F140CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85AF26119E2B4EC00F140CC /* LaunchScreen.xib */; };
+		D85AF26F19E2B4ED00F140CC /* GlastometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AF26E19E2B4ED00F140CC /* GlastometerTests.swift */; };
+		D85AF28219E2B5DC00F140CC /* Bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF27919E2B5DC00F140CC /* Bg2.png */; };
+		D85AF28319E2B5DC00F140CC /* Bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF27A19E2B5DC00F140CC /* Bg3.png */; };
+		D85AF28419E2B5DC00F140CC /* Bg5.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF27B19E2B5DC00F140CC /* Bg5.png */; };
+		D85AF28519E2B5DC00F140CC /* Bg6.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF27C19E2B5DC00F140CC /* Bg6.png */; };
+		D85AF28619E2B5DC00F140CC /* Bg9.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF27D19E2B5DC00F140CC /* Bg9.png */; };
+		D85AF28719E2B5DC00F140CC /* Bg11.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF27E19E2B5DC00F140CC /* Bg11.png */; };
+		D85AF28819E2B5DC00F140CC /* Bg4.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF27F19E2B5DC00F140CC /* Bg4.png */; };
+		D85AF28919E2B5DC00F140CC /* Bg8.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF28019E2B5DC00F140CC /* Bg8.png */; };
+		D85AF28A19E2B5DC00F140CC /* Bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF28119E2B5DC00F140CC /* Bg1.png */; };
+		D894C18B19E49EC800119BA9 /* CountdownCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D85AF26919E2B4EC00F140CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D85AF24B19E2B4EC00F140CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D85AF25219E2B4EC00F140CC;
+			remoteInfo = Glastometer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D85AF25319E2B4EC00F140CC /* Glastometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glastometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85AF25719E2B4EC00F140CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D85AF25819E2B4EC00F140CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D85AF25A19E2B4EC00F140CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D85AF25D19E2B4EC00F140CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D85AF25F19E2B4EC00F140CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D85AF26219E2B4EC00F140CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D85AF26819E2B4EC00F140CC /* GlastometerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlastometerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85AF26D19E2B4ED00F140CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D85AF26E19E2B4ED00F140CC /* GlastometerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlastometerTests.swift; sourceTree = "<group>"; };
+		D85AF27919E2B5DC00F140CC /* Bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bg2.png; path = Glastometer/Bg2.png; sourceTree = SOURCE_ROOT; };
+		D85AF27A19E2B5DC00F140CC /* Bg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg3.png; sourceTree = "<group>"; };
+		D85AF27B19E2B5DC00F140CC /* Bg5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg5.png; sourceTree = "<group>"; };
+		D85AF27C19E2B5DC00F140CC /* Bg6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg6.png; sourceTree = "<group>"; };
+		D85AF27D19E2B5DC00F140CC /* Bg9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg9.png; sourceTree = "<group>"; };
+		D85AF27E19E2B5DC00F140CC /* Bg11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg11.png; sourceTree = "<group>"; };
+		D85AF27F19E2B5DC00F140CC /* Bg4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg4.png; sourceTree = "<group>"; };
+		D85AF28019E2B5DC00F140CC /* Bg8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg8.png; sourceTree = "<group>"; };
+		D85AF28119E2B5DC00F140CC /* Bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bg1.png; path = Glastometer/Bg1.png; sourceTree = SOURCE_ROOT; };
+		D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownCalculator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D85AF25019E2B4EC00F140CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D85AF26519E2B4EC00F140CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D85AF24A19E2B4EC00F140CC = {
+			isa = PBXGroup;
+			children = (
+				D85AF25519E2B4EC00F140CC /* Glastometer */,
+				D85AF26B19E2B4EC00F140CC /* GlastometerTests */,
+				D85AF25419E2B4EC00F140CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D85AF25419E2B4EC00F140CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D85AF25319E2B4EC00F140CC /* Glastometer.app */,
+				D85AF26819E2B4EC00F140CC /* GlastometerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D85AF25519E2B4EC00F140CC /* Glastometer */ = {
+			isa = PBXGroup;
+			children = (
+				D85AF25819E2B4EC00F140CC /* AppDelegate.swift */,
+				D85AF25A19E2B4EC00F140CC /* ViewController.swift */,
+				D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */,
+				D85AF25C19E2B4EC00F140CC /* Main.storyboard */,
+				D85AF25F19E2B4EC00F140CC /* Images.xcassets */,
+				D85AF26119E2B4EC00F140CC /* LaunchScreen.xib */,
+				D85AF25619E2B4EC00F140CC /* Supporting Files */,
+			);
+			path = Glastometer;
+			sourceTree = "<group>";
+		};
+		D85AF25619E2B4EC00F140CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D85AF27819E2B5CA00F140CC /* Images */,
+				D85AF25719E2B4EC00F140CC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D85AF26B19E2B4EC00F140CC /* GlastometerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D85AF26E19E2B4ED00F140CC /* GlastometerTests.swift */,
+				D85AF26C19E2B4ED00F140CC /* Supporting Files */,
+			);
+			path = GlastometerTests;
+			sourceTree = "<group>";
+		};
+		D85AF26C19E2B4ED00F140CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D85AF26D19E2B4ED00F140CC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D85AF27819E2B5CA00F140CC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D85AF28119E2B5DC00F140CC /* Bg1.png */,
+				D85AF27919E2B5DC00F140CC /* Bg2.png */,
+				D85AF27A19E2B5DC00F140CC /* Bg3.png */,
+				D85AF27F19E2B5DC00F140CC /* Bg4.png */,
+				D85AF27B19E2B5DC00F140CC /* Bg5.png */,
+				D85AF27C19E2B5DC00F140CC /* Bg6.png */,
+				D85AF28019E2B5DC00F140CC /* Bg8.png */,
+				D85AF27D19E2B5DC00F140CC /* Bg9.png */,
+				D85AF27E19E2B5DC00F140CC /* Bg11.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D85AF25219E2B4EC00F140CC /* Glastometer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D85AF27219E2B4ED00F140CC /* Build configuration list for PBXNativeTarget "Glastometer" */;
+			buildPhases = (
+				D85AF24F19E2B4EC00F140CC /* Sources */,
+				D85AF25019E2B4EC00F140CC /* Frameworks */,
+				D85AF25119E2B4EC00F140CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Glastometer;
+			productName = Glastometer;
+			productReference = D85AF25319E2B4EC00F140CC /* Glastometer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D85AF26719E2B4EC00F140CC /* GlastometerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D85AF27519E2B4ED00F140CC /* Build configuration list for PBXNativeTarget "GlastometerTests" */;
+			buildPhases = (
+				D85AF26419E2B4EC00F140CC /* Sources */,
+				D85AF26519E2B4EC00F140CC /* Frameworks */,
+				D85AF26619E2B4EC00F140CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D85AF26A19E2B4EC00F140CC /* PBXTargetDependency */,
+			);
+			name = GlastometerTests;
+			productName = GlastometerTests;
+			productReference = D85AF26819E2B4EC00F140CC /* GlastometerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D85AF24B19E2B4EC00F140CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Joe;
+				TargetAttributes = {
+					D85AF25219E2B4EC00F140CC = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					D85AF26719E2B4EC00F140CC = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = D85AF25219E2B4EC00F140CC;
+					};
+				};
+			};
+			buildConfigurationList = D85AF24E19E2B4EC00F140CC /* Build configuration list for PBXProject "Glastometer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D85AF24A19E2B4EC00F140CC;
+			productRefGroup = D85AF25419E2B4EC00F140CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D85AF25219E2B4EC00F140CC /* Glastometer */,
+				D85AF26719E2B4EC00F140CC /* GlastometerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D85AF25119E2B4EC00F140CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D85AF28319E2B5DC00F140CC /* Bg3.png in Resources */,
+				D85AF25E19E2B4EC00F140CC /* Main.storyboard in Resources */,
+				D85AF26319E2B4EC00F140CC /* LaunchScreen.xib in Resources */,
+				D85AF28719E2B5DC00F140CC /* Bg11.png in Resources */,
+				D85AF26019E2B4EC00F140CC /* Images.xcassets in Resources */,
+				D85AF28419E2B5DC00F140CC /* Bg5.png in Resources */,
+				D85AF28219E2B5DC00F140CC /* Bg2.png in Resources */,
+				D85AF28619E2B5DC00F140CC /* Bg9.png in Resources */,
+				D85AF28519E2B5DC00F140CC /* Bg6.png in Resources */,
+				D85AF28819E2B5DC00F140CC /* Bg4.png in Resources */,
+				D85AF28A19E2B5DC00F140CC /* Bg1.png in Resources */,
+				D85AF28919E2B5DC00F140CC /* Bg8.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D85AF26619E2B4EC00F140CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D85AF24F19E2B4EC00F140CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D894C18B19E49EC800119BA9 /* CountdownCalculator.swift in Sources */,
+				D85AF25B19E2B4EC00F140CC /* ViewController.swift in Sources */,
+				D85AF25919E2B4EC00F140CC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D85AF26419E2B4EC00F140CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D85AF26F19E2B4ED00F140CC /* GlastometerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D85AF26A19E2B4EC00F140CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D85AF25219E2B4EC00F140CC /* Glastometer */;
+			targetProxy = D85AF26919E2B4EC00F140CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D85AF25C19E2B4EC00F140CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D85AF25D19E2B4EC00F140CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D85AF26119E2B4EC00F140CC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D85AF26219E2B4EC00F140CC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D85AF27019E2B4ED00F140CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D85AF27119E2B4ED00F140CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D85AF27319E2B4ED00F140CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Glastometer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D85AF27419E2B4ED00F140CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Glastometer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D85AF27619E2B4ED00F140CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GlastometerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glastometer.app/Glastometer";
+			};
+			name = Debug;
+		};
+		D85AF27719E2B4ED00F140CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GlastometerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glastometer.app/Glastometer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D85AF24E19E2B4EC00F140CC /* Build configuration list for PBXProject "Glastometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D85AF27019E2B4ED00F140CC /* Debug */,
+				D85AF27119E2B4ED00F140CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D85AF27219E2B4ED00F140CC /* Build configuration list for PBXNativeTarget "Glastometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D85AF27319E2B4ED00F140CC /* Debug */,
+				D85AF27419E2B4ED00F140CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D85AF27519E2B4ED00F140CC /* Build configuration list for PBXNativeTarget "GlastometerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D85AF27619E2B4ED00F140CC /* Debug */,
+				D85AF27719E2B4ED00F140CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D85AF24B19E2B4EC00F140CC /* Project object */;
+}
