@@ -45,46 +45,40 @@ public class CountdownCalculator
         var target = DateFromString(targetDateTime)
         var remaining = target.timeIntervalSinceDate(now)
         var remainingDays = DaysFromSeconds(remaining)
-        var Output1str = "\(remainingDays) Days to \(targetName)"
+        return remainingDays
+    }
+    
+    func RemainingDaysLabel() -> String
+    {
+        var daysStr = "Day"                     //Set up the Day(s) string for display
+        if (RemainingDays() != 1) {
+            daysStr += "s"
+        }
+        return daysStr
+    }
+    
+    func RemainingWeeks() -> (weeks: Int, days: Int)
+    {
+        var remainingWeeks = RemainingDays() / 7
+        var remainingDaysAfterWeeks = RemainingDays() % 7
         
-        var remainingWeeks = remainingDays / 7
-        var remainingDaysAfterWeeks = remainingDays % 7
+        return (remainingWeeks, remainingDaysAfterWeeks)
+    }
+    
+    func RemainingWeeksLabels() -> (weeksLbl: String, daysLbl: String)
+    {
+        var weeksDaysRemaining = RemainingWeeks()
         
         var daysStr = "Day"                     //Set up the Day(s) string for display
-        if (remainingDaysAfterWeeks != 1) {
+        if (weeksDaysRemaining.days != 1) {
             daysStr += "s"
         }
         
         var weeksStr = "Week"                   //Set up the Week(s) string for display
-        if (remainingWeeks != 1) {
+        if (weeksDaysRemaining.weeks != 1) {
             weeksStr += "s"
         }
-        
-        var Output2Str : String
-        if (remainingDaysAfterWeeks > 0)
-        {
-            if (remainingWeeks > 0)
-            {
-                Output2Str = "\(remainingWeeks) \(weeksStr), \(remainingDaysAfterWeeks) \(daysStr) to \(targetName)"
-            }
-            else
-            {
-                Output2Str = "\(remainingDaysAfterWeeks) \(daysStr) to \(targetName)"
-            }
-        }
-        else
-        {
-            Output2Str = "\(remainingWeeks) \(weeksStr) to \(targetName)"
-        }
-        
-        str = Output1str
-        str = Output2Str
 
-        return remainingDays
+        return (weeksStr, daysStr)
     }
-    
-    
-    
-    
-    
 }

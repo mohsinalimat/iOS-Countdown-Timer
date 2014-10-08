@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var remainingUnitsLabel: UILabel!
     
     let thisCountdown = CountdownCalculator()
+    let CHANGE_BACKGROUND_TIME:Int = 5 //Seconds - this does not work in the NSTimer.scheduledTimerWithTimeInterval parameters?!?
+    
     
     //Load the images into an array
     var backgroundImages: [UIImage] = [
@@ -36,10 +38,10 @@ class ViewController: UIViewController {
         
         //Start Change image timer
         var timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
-
-        thisCountdown.Config("2015-06-24 08:00")
+        thisCountdown.Config("2014-12-25 08:00")
         
-        remainingDaysLabel.text = String (thisCountdown.RemainingDays())
+        remainingDaysLabel.text = String(thisCountdown.RemainingDays())
+        remainingUnitsLabel.text = String(thisCountdown.RemainingDaysLabel())
     }
 
     
