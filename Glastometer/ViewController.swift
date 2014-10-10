@@ -14,11 +14,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var remainingDaysLabel: UILabel!
     @IBOutlet weak var remainingUnitsLabel: UILabel!
     
+//Constants *******************************************************************
     let thisCountdown = CountdownCalculator()
     let CHANGE_BACKGROUND_TIME:Int = 5 //Seconds - this does not work in the NSTimer.scheduledTimerWithTimeInterval parameters?!?
     
+    let numberOfDisplays:Int = 2 //There are currently 2 types of display, Remaining Days OR Remaining Weeks and Days
     
-    //Load the images into an array
+    
+//Variables *******************************************************************
+    var currentDisplay = 1
+    
+    //Load the images into an array (could this array be a let?)
     var backgroundImages: [UIImage] = [
         UIImage(named: "Bg1.png"), UIImage(named: "Bg2.png"), UIImage(named: "Bg3.png"), UIImage(named: "Bg4.png"),
         UIImage(named: "Bg5.png"), UIImage(named: "Bg6.png"), UIImage(named: "Bg8.png"), UIImage(named: "Bg9.png"),
@@ -27,6 +33,7 @@ class ViewController: UIViewController {
     var photoCount:Int = 0
     
     
+//Code *******************************************************************
     override func viewDidLoad(){
         super.viewDidLoad()
         
@@ -35,13 +42,14 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true;
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         //Start Change image timer
-        var timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
+        var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
         thisCountdown.Config("2014-12-25 08:00")
         
-        remainingDaysLabel.text = String(thisCountdown.RemainingDays())
-        remainingUnitsLabel.text = String(thisCountdown.RemainingDaysLabel())
+        //Start the display update timer (1 second)
+        var displayTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateDisplay"), userInfo: nil, repeats: true)
     }
 
     
@@ -64,6 +72,35 @@ class ViewController: UIViewController {
             animations: { self.backgroundImageView.image = toImage },
             completion: nil)
         //NSLog("Image changed")
+    }
+    
+    @IBAction func ChangeDisplay(sender: AnyObject) {
+        //Change the currentDisplay int everytime the button is pressed
+        currentDisplay++
+        if (currentDisplay > numberOfDisplays)
+        {
+            currentDisplay = 1
+        }
+        //NSLog(" \(currentDisplay) ")
+        updateDisplay()
+    }
+    
+    func updateDisplay()
+    {
+        if (currentDisplay == 1)    // Display remaining Days
+
+        {
+            remainingDaysLabel.text = String(thisCountdown.RemainingDays())
+            remainingUnitsLabel.text = String(thisCountdown.RemainingDaysLabel())
+        }
+        if (currentDisplay == 2)    // Display weeks and days
+        {
+            var weeksObj = thisCountdown.RemainingWeeks()
+            var labelObj = thisCountdown.RemainingWeeksLabels()
+            
+            remainingDaysLabel.text = String(weeksObj.weeks)
+            remainingUnitsLabel.text = labelObj.weeksLbl + "\r" + String(weeksObj.days) + " " + labelObj.daysLbl
+        }
     }
     
     
