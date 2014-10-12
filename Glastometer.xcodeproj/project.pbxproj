@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D816301219E9C31200282D04 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D816301119E9C31200282D04 /* NotificationCenter.framework */; };
+		D816301719E9C31200282D04 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816301619E9C31200282D04 /* TodayViewController.swift */; };
+		D816301919E9C31200282D04 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D816301819E9C31200282D04 /* MainInterface.storyboard */; };
+		D816301C19E9C31200282D04 /* Glastometer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D816300F19E9C31200282D04 /* Glastometer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D816302319E9CDC800282D04 /* CountdownCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */; };
 		D85AF25919E2B4EC00F140CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AF25819E2B4EC00F140CC /* AppDelegate.swift */; };
 		D85AF25B19E2B4EC00F140CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AF25A19E2B4EC00F140CC /* ViewController.swift */; };
 		D85AF25E19E2B4EC00F140CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85AF25C19E2B4EC00F140CC /* Main.storyboard */; };
@@ -26,6 +31,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D816301A19E9C31200282D04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D85AF24B19E2B4EC00F140CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D816300E19E9C31200282D04;
+			remoteInfo = "Glastometer Widget";
+		};
+		D816301D19E9C31200282D04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D85AF24B19E2B4EC00F140CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D816300E19E9C31200282D04;
+			remoteInfo = "Glastometer Widget";
+		};
 		D85AF26919E2B4EC00F140CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D85AF24B19E2B4EC00F140CC /* Project object */;
@@ -35,7 +54,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D816302219E9C31200282D04 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D816301C19E9C31200282D04 /* Glastometer.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D816300F19E9C31200282D04 /* Glastometer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Glastometer.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D816301119E9C31200282D04 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D816301519E9C31200282D04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D816301619E9C31200282D04 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D816301819E9C31200282D04 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		D85AF25319E2B4EC00F140CC /* Glastometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glastometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85AF25719E2B4EC00F140CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D85AF25819E2B4EC00F140CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +97,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D816300C19E9C31200282D04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D816301219E9C31200282D04 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D85AF25019E2B4EC00F140CC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,11 +122,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D816301019E9C31200282D04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D816301119E9C31200282D04 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D816301319E9C31200282D04 /* Glastometer Widget */ = {
+			isa = PBXGroup;
+			children = (
+				D816301619E9C31200282D04 /* TodayViewController.swift */,
+				D816301819E9C31200282D04 /* MainInterface.storyboard */,
+				D816301419E9C31200282D04 /* Supporting Files */,
+			);
+			path = "Glastometer Widget";
+			sourceTree = "<group>";
+		};
+		D816301419E9C31200282D04 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D816301519E9C31200282D04 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D85AF24A19E2B4EC00F140CC = {
 			isa = PBXGroup;
 			children = (
 				D85AF25519E2B4EC00F140CC /* Glastometer */,
 				D85AF26B19E2B4EC00F140CC /* GlastometerTests */,
+				D816301319E9C31200282D04 /* Glastometer Widget */,
+				D816301019E9C31200282D04 /* Frameworks */,
 				D85AF25419E2B4EC00F140CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +164,7 @@
 			children = (
 				D85AF25319E2B4EC00F140CC /* Glastometer.app */,
 				D85AF26819E2B4EC00F140CC /* GlastometerTests.xctest */,
+				D816300F19E9C31200282D04 /* Glastometer.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +228,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D816300E19E9C31200282D04 /* Glastometer Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D816302119E9C31200282D04 /* Build configuration list for PBXNativeTarget "Glastometer Widget" */;
+			buildPhases = (
+				D816300B19E9C31200282D04 /* Sources */,
+				D816300C19E9C31200282D04 /* Frameworks */,
+				D816300D19E9C31200282D04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Glastometer Widget";
+			productName = "Glastometer Widget";
+			productReference = D816300F19E9C31200282D04 /* Glastometer.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D85AF25219E2B4EC00F140CC /* Glastometer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D85AF27219E2B4ED00F140CC /* Build configuration list for PBXNativeTarget "Glastometer" */;
@@ -160,10 +252,13 @@
 				D85AF24F19E2B4EC00F140CC /* Sources */,
 				D85AF25019E2B4EC00F140CC /* Frameworks */,
 				D85AF25119E2B4EC00F140CC /* Resources */,
+				D816302219E9C31200282D04 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D816301B19E9C31200282D04 /* PBXTargetDependency */,
+				D816301E19E9C31200282D04 /* PBXTargetDependency */,
 			);
 			name = Glastometer;
 			productName = Glastometer;
@@ -197,6 +292,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Joe;
 				TargetAttributes = {
+					D816300E19E9C31200282D04 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
 					D85AF25219E2B4EC00F140CC = {
 						CreatedOnToolsVersion = 6.0.1;
 					};
@@ -221,11 +319,20 @@
 			targets = (
 				D85AF25219E2B4EC00F140CC /* Glastometer */,
 				D85AF26719E2B4EC00F140CC /* GlastometerTests */,
+				D816300E19E9C31200282D04 /* Glastometer Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D816300D19E9C31200282D04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D816301919E9C31200282D04 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D85AF25119E2B4EC00F140CC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,6 +362,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D816300B19E9C31200282D04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D816302319E9CDC800282D04 /* CountdownCalculator.swift in Sources */,
+				D816301719E9C31200282D04 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D85AF24F19E2B4EC00F140CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -276,6 +392,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D816301B19E9C31200282D04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D816300E19E9C31200282D04 /* Glastometer Widget */;
+			targetProxy = D816301A19E9C31200282D04 /* PBXContainerItemProxy */;
+		};
+		D816301E19E9C31200282D04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D816300E19E9C31200282D04 /* Glastometer Widget */;
+			targetProxy = D816301D19E9C31200282D04 /* PBXContainerItemProxy */;
+		};
 		D85AF26A19E2B4EC00F140CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D85AF25219E2B4EC00F140CC /* Glastometer */;
@@ -303,6 +429,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D816301F19E9C31200282D04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Glastometer Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = Glastometer;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D816302019E9C31200282D04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Glastometer Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = Glastometer;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		D85AF27019E2B4ED00F140CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -439,6 +589,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D816302119E9C31200282D04 /* Build configuration list for PBXNativeTarget "Glastometer Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D816301F19E9C31200282D04 /* Debug */,
+				D816302019E9C31200282D04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D85AF24E19E2B4EC00F140CC /* Build configuration list for PBXProject "Glastometer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

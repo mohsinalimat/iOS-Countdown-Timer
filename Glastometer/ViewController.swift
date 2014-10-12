@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
         thisCountdown.Config("2014-12-25 08:00")
         
+        updateDisplay()
+        
         //Start the display update timer (1 second)
         var displayTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateDisplay"), userInfo: nil, repeats: true)
     }
