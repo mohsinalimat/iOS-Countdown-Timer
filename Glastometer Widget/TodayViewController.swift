@@ -18,7 +18,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         super.preferredContentSize = CGSizeMake(0, 32);
         
-        //thisCountdown.Config()
+        
+        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
+        
+        var targetDate = defaults.objectForKey("targetDate") as? String!
+        
+        if (targetDate == nil) {
+            targetDate = "2014-10-14 12:34"
+        }
+        
+        thisCountdown.Config(targetDate!)
         
         mainLabel.text = String(thisCountdown.RemainingDays()) + " Days to go!"
     }

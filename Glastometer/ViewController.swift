@@ -46,7 +46,16 @@ class ViewController: UIViewController {
         
         //Start Change image timer
         var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
-        thisCountdown.Config("2014-12-25 08:00")
+        
+        var targetDate = "2014-12-25 08:00"
+        
+        thisCountdown.Config(targetDate)
+        
+        //Save the target date in NSUserDefaults
+        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
+        defaults.setObject(targetDate, forKey: "targetDate")
+        defaults.synchronize()
+        
         
         updateDisplay()
         
