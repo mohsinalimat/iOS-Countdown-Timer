@@ -12,7 +12,7 @@ public class CountdownCalculator
 {
     var str = "Hello, Countdown Calculator"
     
-    var targetDateTime:String = "2014-12-25 08:00"
+    var targetDateTime:String = "2014-12-25 09:00"
     var targetName = "Christmas 2015"
     
     //Constants

@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     
     var photoCount:Int = 0
     
+    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
+    
     
 //Code *******************************************************************
     override func viewDidLoad(){
@@ -47,13 +49,17 @@ class ViewController: UIViewController {
         //Start Change image timer
         var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
         
-        var targetDate = "2014-12-25 08:00"
+        // Get the target date from NSUserDefaults
+        var targetDateString = defaults.objectForKey("targetDate") as? String!
         
-        thisCountdown.Config(targetDate)
+        if (targetDateString == nil) {
+            targetDateString = "2014-10-14 12:34"
+        }
+
+        thisCountdown.Config(targetDateString!)
         
         //Save the target date in NSUserDefaults
-        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
-        defaults.setObject(targetDate, forKey: "targetDate")
+        defaults.setObject(targetDateString, forKey: "targetDate")
         defaults.synchronize()
         
         
@@ -61,6 +67,14 @@ class ViewController: UIViewController {
         
         //Start the display update timer (1 second)
         var displayTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateDisplay"), userInfo: nil, repeats: true)
+    }
+
+    
+    override func viewWillAppear(animated: Bool) {
+        NSLog("this just happened!")
+        
+        // Put code here to set the target date... it may have just been changed in the settings TVC.
+        
     }
 
     
