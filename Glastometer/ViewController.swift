@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var remainingDaysLabel: UILabel!
     @IBOutlet weak var remainingUnitsLabel: UILabel!
     
-//Constants ******************************************************************* ffs!!
+//Constants *******************************************************************
     let thisCountdown = CountdownCalculator()
     let CHANGE_BACKGROUND_TIME:Int = 5 //Seconds - this does not work in the NSTimer.scheduledTimerWithTimeInterval parameters?!?
     
