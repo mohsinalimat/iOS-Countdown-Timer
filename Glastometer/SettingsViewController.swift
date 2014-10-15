@@ -13,6 +13,12 @@ class SettingsViewController : UITableViewController
 {
     var editTargetDate:Bool = false;
     
+    //Constants
+    let SECTION_FOR_DATE = 1
+    let ROW_FOR_DATE = 0
+    let ROW_FOR_DATE_PICKER = 1
+    
+    
     let countdownCountdown = CountdownCalculator()
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
     
@@ -68,7 +74,7 @@ class SettingsViewController : UITableViewController
     {
         //datePickerCell.clipsToBounds = true
         
-        if (indexPath.section == 0 && indexPath.row == 1)
+        if (indexPath.section == SECTION_FOR_DATE && indexPath.row == ROW_FOR_DATE_PICKER)
         {
             if (editTargetDate)
             {
@@ -84,10 +90,10 @@ class SettingsViewController : UITableViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        if (indexPath.section == 0 && indexPath.row == 0)
+        if (indexPath.section == SECTION_FOR_DATE && indexPath.row == ROW_FOR_DATE)
         {
             var datePickerCell = NSIndexPath(forRow: 1, inSection: 0)
-            var customCell = self.tableView.cellForRowAtIndexPath(datePickerCell)
+            //var customCell = self.tableView.cellForRowAtIndexPath(datePickerCell)
             
             if (editTargetDate)
             {
