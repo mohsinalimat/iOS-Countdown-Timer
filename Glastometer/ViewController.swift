@@ -43,7 +43,6 @@ class ViewController: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = true;
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         //Start Change image timer
@@ -58,7 +57,7 @@ class ViewController: UIViewController {
 
     
     override func viewWillAppear(animated: Bool) {
-        NSLog("this just happened!")
+        self.navigationController?.navigationBar.translucent = true;
         
         // Put code here to set the target date... it may have just been changed in the settings TVC.
         setTheTargetDate()
@@ -75,8 +74,8 @@ class ViewController: UIViewController {
         }
         
         thisCountdown.Config(targetDateString!)
-    
     }
+    
     
     func changeImage() {
         
@@ -99,6 +98,7 @@ class ViewController: UIViewController {
         //NSLog("Image changed")
     }
     
+    
     @IBAction func ChangeDisplay(sender: AnyObject) {
         //Change the currentDisplay int everytime the button is pressed
         currentDisplay++
@@ -110,8 +110,8 @@ class ViewController: UIViewController {
         updateDisplay()
     }
     
-    func updateDisplay()
-    {
+    
+    func updateDisplay(){
         if (currentDisplay == 1)    // Display remaining Days
 
         {

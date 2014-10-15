@@ -18,7 +18,6 @@ class SettingsViewController : UITableViewController
     let ROW_FOR_DATE = 0
     let ROW_FOR_DATE_PICKER = 1
     
-    
     let countdownCountdown = CountdownCalculator()
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
     
@@ -26,8 +25,8 @@ class SettingsViewController : UITableViewController
     @IBOutlet weak var dateDetail: UILabel!
     
     
-    
     override func viewDidLoad() {
+        
         // Get the target date from NSUserDefaults
         var targetDateString = defaults.objectForKey("targetDate") as? String!
         
@@ -48,6 +47,11 @@ class SettingsViewController : UITableViewController
         
         //Add a target to be called when the date picker changes date.
         datePicker.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.translucent = false;
     }
     
     
@@ -72,15 +76,12 @@ class SettingsViewController : UITableViewController
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        //datePickerCell.clipsToBounds = true
-        
         if (indexPath.section == SECTION_FOR_DATE && indexPath.row == ROW_FOR_DATE_PICKER)
         {
-            if (editTargetDate)
-            {
+            if (editTargetDate) {
                 return self.tableView.rowHeight
-            } else
-            {
+            }
+            else{
                 return 0.0
             }
         }
@@ -91,19 +92,8 @@ class SettingsViewController : UITableViewController
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         if (indexPath.section == SECTION_FOR_DATE && indexPath.row == ROW_FOR_DATE)
-        {
-            var datePickerCell = NSIndexPath(forRow: 1, inSection: 0)
-            //var customCell = self.tableView.cellForRowAtIndexPath(datePickerCell)
-            
-            if (editTargetDate)
-            {
-                //customCell? = editTargetDate
-                editTargetDate = false
-            }
-            else
-            {
-                editTargetDate = true
-            }
+        {   //The Date row was clicked, toggle the display bit and call reloadData, this then run the above function
+            editTargetDate = !editTargetDate
             self.tableView.reloadData()
         }
     }
