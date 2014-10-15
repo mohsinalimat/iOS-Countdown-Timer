@@ -49,20 +49,7 @@ class ViewController: UIViewController {
         //Start Change image timer
         var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
         
-        // Get the target date from NSUserDefaults
-        var targetDateString = defaults.objectForKey("targetDate") as? String!
-        
-        if (targetDateString == nil) {
-            targetDateString = "2014-10-14 12:34"
-        }
-
-        thisCountdown.Config(targetDateString!)
-        
-        //Save the target date in NSUserDefaults
-        defaults.setObject(targetDateString, forKey: "targetDate")
-        defaults.synchronize()
-        
-        
+        setTheTargetDate()
         updateDisplay()
         
         //Start the display update timer (1 second)
@@ -74,9 +61,22 @@ class ViewController: UIViewController {
         NSLog("this just happened!")
         
         // Put code here to set the target date... it may have just been changed in the settings TVC.
-        
+        setTheTargetDate()
     }
 
+    
+    func setTheTargetDate() {
+        
+        // Get the target date from NSUserDefaults
+        var targetDateString = defaults.objectForKey("targetDate") as? String!
+        
+        if (targetDateString! == nil) {
+            targetDateString = "2014-10-14 12:34"
+        }
+        
+        thisCountdown.Config(targetDateString!)
+    
+    }
     
     func changeImage() {
         
