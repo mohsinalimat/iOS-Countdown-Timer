@@ -19,7 +19,7 @@ class SettingsViewController : UITableViewController
     let ROW_FOR_DATE_PICKER = 1
     
     let countdownCountdown = CountdownCalculator()
-    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
+    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateDetail: UILabel!

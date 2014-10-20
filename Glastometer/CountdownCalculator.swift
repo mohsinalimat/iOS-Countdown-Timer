@@ -41,7 +41,7 @@ public class CountdownCalculator
     
     func RemainingDays() -> Int
     {
-        var now = NSDate.date()
+        var now = NSDate()
         var target = DateFromString(targetDateTime)
         var remaining = target.timeIntervalSinceDate(now)
         var remainingDays = DaysFromSeconds(remaining)

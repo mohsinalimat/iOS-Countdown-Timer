@@ -26,13 +26,13 @@ class ViewController: UIViewController {
     
     //Load the images into an array (could this array be a let?)
     var backgroundImages: [UIImage] = [
-        UIImage(named: "Bg1.png"), UIImage(named: "Bg2.png"), UIImage(named: "Bg3.png"), UIImage(named: "Bg4.png"),
-        UIImage(named: "Bg5.png"), UIImage(named: "Bg6.png"), UIImage(named: "Bg8.png"), UIImage(named: "Bg9.png"),
-        UIImage(named: "Bg11.png")]
+        UIImage(named: "Bg1.png")!, UIImage(named: "Bg2.png")!, UIImage(named: "Bg3.png")!, UIImage(named: "Bg4.png")!,
+        UIImage(named: "Bg5.png")!, UIImage(named: "Bg6.png")!, UIImage(named: "Bg8.png")!, UIImage(named: "Bg9.png")!,
+        UIImage(named: "Bg11.png")!]
     
     var photoCount:Int = 0
     
-    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
+    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     
     
 //Code *******************************************************************

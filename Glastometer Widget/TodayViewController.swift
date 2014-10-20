@@ -19,7 +19,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.preferredContentSize = CGSizeMake(0, 32);
         
         
-        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")
+        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
         
         var targetDate = defaults.objectForKey("targetDate") as? String!
         
