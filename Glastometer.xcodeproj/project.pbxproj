@@ -630,6 +630,7 @@
 				D816302019E9C31200282D04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D85AF24E19E2B4EC00F140CC /* Build configuration list for PBXProject "Glastometer" */ = {
 			isa = XCConfigurationList;

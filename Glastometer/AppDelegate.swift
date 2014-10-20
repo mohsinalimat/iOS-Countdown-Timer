@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let thisCountdown = CountdownCalculator()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -36,7 +36,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setBadge(application: UIApplication)
     {
-        application.applicationIconBadgeNumber = 45
+        
+        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+        var targetDate = defaults.objectForKey("targetDate") as? String!
+        if (targetDate == nil) {
+            targetDate = "2014-12-25 12:34"
+        }
+        
+        thisCountdown.Config(targetDate!)
+        
+        application.applicationIconBadgeNumber = thisCountdown.RemainingDays()
     }
     
     

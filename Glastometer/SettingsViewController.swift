@@ -31,7 +31,7 @@ class SettingsViewController : UITableViewController
         var targetDateString = defaults.objectForKey("targetDate") as? String!
         
         if (targetDateString! == nil) {
-            targetDateString = "2014-10-14 12:34"
+            targetDateString = "2014-12-25 12:34"
         }
         
         var targetDate = countdownCountdown.DateFromString(targetDateString!)

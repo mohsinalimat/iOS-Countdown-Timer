@@ -24,7 +24,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         var targetDate = defaults.objectForKey("targetDate") as? String!
         
         if (targetDate == nil) {
-            targetDate = "2014-10-14 12:34"
+            targetDate = "2014-12-25 12:34"
         }
         
         thisCountdown.Config(targetDate!)
