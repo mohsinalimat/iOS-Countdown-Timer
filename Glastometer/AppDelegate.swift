@@ -16,14 +16,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
         let types:UIUserNotificationType = UIUserNotificationType.Badge
         let mySettings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(mySettings)
-        application.applicationIconBadgeNumber = 66 // temp for testing...
+        application.applicationIconBadgeNumber = 0 // temp for testing...
         
         return true
     }
 
+    
+    func application(application: UIApplication!, performFetchWithCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)!)
+    {
+        setBadge(application)
+        completionHandler(UIBackgroundFetchResult.NewData)
+    }
+    
+    
+    func setBadge(application: UIApplication)
+    {
+        application.applicationIconBadgeNumber = 45
+    }
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

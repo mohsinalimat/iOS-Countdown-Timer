@@ -30,7 +30,7 @@ class SettingsViewController : UITableViewController
         // Get the target date from NSUserDefaults
         var targetDateString = defaults.objectForKey("targetDate") as? String!
         
-        if (targetDateString == nil) {
+        if (targetDateString! == nil) {
             targetDateString = "2014-10-14 12:34"
         }
         
