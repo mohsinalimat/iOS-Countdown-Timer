@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>ZAH7QR2EX3.com.glastometer.app.Glastometer.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>ZAH7QR2EX3.com.glastometer.app.Glastometer.$(PRODUCT_NAME:rfc1034identifier)Extension</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
