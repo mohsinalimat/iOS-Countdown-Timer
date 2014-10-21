@@ -39,6 +39,7 @@ public class CountdownCalculator
         return dateFmt.dateFromString(dateStr)!
     }
     
+    
     func RemainingDays() -> Int
     {
         var now = NSDate()

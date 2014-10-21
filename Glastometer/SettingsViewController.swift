@@ -12,6 +12,9 @@ import UIKit
 class SettingsViewController : UITableViewController
 {
     var editTargetDate:Bool = false;
+    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+    var showIconBadge: Bool!
+    
     
     //Constants
     let SECTION_FOR_DATE = 1
@@ -19,13 +22,22 @@ class SettingsViewController : UITableViewController
     let ROW_FOR_DATE_PICKER = 1
     
     let countdownCountdown = CountdownCalculator()
-    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+    
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateDetail: UILabel!
+    @IBOutlet weak var iconBadgeSwitch: UISwitch!
     
     
     override func viewDidLoad() {
+        
+        // Get the icon badge switch state from NSUserDefaults
+        showIconBadge = defaults.objectForKey("showIconBadge") as? Bool
+        if (showIconBadge == nil) {
+            showIconBadge = true
+        }
+        iconBadgeSwitch.setOn(showIconBadge!, animated: true)
+        
         
         // Get the target date from NSUserDefaults
         var targetDateString = defaults.objectForKey("targetDate") as? String!
@@ -98,5 +110,21 @@ class SettingsViewController : UITableViewController
         }
     }
 
+    
+    @IBAction func iconBadgeSwitchPressed(sender: AnyObject)
+    {
+        showIconBadge = !showIconBadge
+        
+        defaults.setObject(showIconBadge, forKey: "showIconBadge")
+        defaults.synchronize()
+        
+        var application = UIApplication.sharedApplication()
+        if (showIconBadge!){
+            application.applicationIconBadgeNumber = countdownCountdown.RemainingDays()
+        }
+        else {
+            application.applicationIconBadgeNumber = 0
+        }
+    }
     
 }
