@@ -21,7 +21,7 @@ class SettingsViewController : UITableViewController
     let ROW_FOR_DATE = 0
     let ROW_FOR_DATE_PICKER = 1
     
-    let countdownCountdown = CountdownCalculator()
+    let thisCountdown = CountdownCalculator()
     
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -46,7 +46,10 @@ class SettingsViewController : UITableViewController
             targetDateString = "2014-12-25 12:34"
         }
         
-        var targetDate = countdownCountdown.DateFromString(targetDateString!)
+        var targetDate = thisCountdown.DateFromString(targetDateString!)
+        
+        //Set the target date in the countdown object
+        thisCountdown.Config(targetDateString!)
         
         //Set the date in the datePicker
         datePicker.setDate(targetDate, animated: true)
@@ -83,6 +86,11 @@ class SettingsViewController : UITableViewController
         
         defaults.setObject(dateStringToSave, forKey: "targetDate")
         defaults.synchronize()
+        
+        //Set the target date in the countdown object
+        thisCountdown.Config(dateStringToSave)
+        
+        showHideIconBadge()
     }
 
     
@@ -117,12 +125,20 @@ class SettingsViewController : UITableViewController
         
         defaults.setObject(showIconBadge, forKey: "showIconBadge")
         defaults.synchronize()
-        
+     
+        showHideIconBadge()
+    }
+    
+    
+    func showHideIconBadge()
+    {
         var application = UIApplication.sharedApplication()
         if (showIconBadge!){
-            application.applicationIconBadgeNumber = countdownCountdown.RemainingDays()
+            NSLog("Set icon badge to: \(thisCountdown.RemainingDays())")
+            application.applicationIconBadgeNumber = thisCountdown.RemainingDays()
         }
         else {
+            NSLog("Hide icon badge")
             application.applicationIconBadgeNumber = 0
         }
     }

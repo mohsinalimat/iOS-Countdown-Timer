@@ -29,15 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication!, performFetchWithCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)!)
     {
-        //setBadge(application)
+        NSLog("Starting background fetch")
+        setBadge(application)
         
         //This is just for testing (use above line)
-        testBackgroundFetch(application)
+        //testBackgroundFetch(application)
         
         completionHandler(UIBackgroundFetchResult.NewData)
+        
+        NSLog("Finished background fetch")
     }
     
     
+    //--- Test function to set the icon badge to the current time in HHmm - used to test frequency of BackgroundFetchIntervalMinimum
     func testBackgroundFetch(application: UIApplication)
     {
         var now = NSDate()
@@ -54,16 +58,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setBadge(application: UIApplication)
     {
+        var defaults = NSUserDefaults(suiteName: "group.glastometer.com")!
         
-        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
-        var targetDate = defaults.objectForKey("targetDate") as? String!
-        if (targetDate == nil) {
-            targetDate = "2014-12-25 12:34"
+        // Get the icon badge switch state from NSUserDefaults
+        var showIconBadge = defaults.objectForKey("showIconBadge") as? Bool
+        if (showIconBadge!)
+        {
+            var targetDate = defaults.objectForKey("targetDate") as? String!
+            if (targetDate == nil) {
+                targetDate = "2014-12-25 12:34"
+            }
+            
+            thisCountdown.Config(targetDate!)
+            
+            application.applicationIconBadgeNumber = thisCountdown.RemainingDays()
         }
-        
-        thisCountdown.Config(targetDate!)
-        
-        application.applicationIconBadgeNumber = thisCountdown.RemainingDays()
     }
     
     

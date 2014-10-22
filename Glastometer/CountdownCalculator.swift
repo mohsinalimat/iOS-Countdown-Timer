@@ -49,6 +49,7 @@ public class CountdownCalculator
         return remainingDays
     }
     
+    
     func RemainingDaysLabel() -> String
     {
         var daysStr = "Day"                     //Set up the Day(s) string for display
@@ -58,6 +59,7 @@ public class CountdownCalculator
         return daysStr
     }
     
+    
     func RemainingWeeks() -> (weeks: Int, days: Int)
     {
         var remainingWeeks = RemainingDays() / 7
@@ -65,6 +67,7 @@ public class CountdownCalculator
         
         return (remainingWeeks, remainingDaysAfterWeeks)
     }
+    
     
     func RemainingWeeksLabels() -> (weeksLbl: String, daysLbl: String)
     {
