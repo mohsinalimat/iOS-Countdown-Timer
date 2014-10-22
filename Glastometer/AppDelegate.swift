@@ -29,8 +29,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication!, performFetchWithCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)!)
     {
-        setBadge(application)
+        //setBadge(application)
+        
+        //This is just for testing (use above line)
+        testBackgroundFetch(application)
+        
         completionHandler(UIBackgroundFetchResult.NewData)
+    }
+    
+    
+    func testBackgroundFetch(application: UIApplication)
+    {
+        var now = NSDate()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "HHmm"
+        formatter.stringFromDate(now)
+        var myTime:Int
+        myTime = formatter.stringFromDate(now).toInt()!
+        
+        application.applicationIconBadgeNumber = myTime
     }
     
     
