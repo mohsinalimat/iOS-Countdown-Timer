@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSLog("Starting background fetch")
         setBadge(application)
         
-        //This is just for testing (use above line)
+        //This is just for testing (use above line) - comment to test commit.
         //testBackgroundFetch(application)
         
         completionHandler(UIBackgroundFetchResult.NewData)
