@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let types:UIUserNotificationType = UIUserNotificationType.Badge
         let mySettings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(mySettings)
-        application.applicationIconBadgeNumber = 0 // temp for testing...
         
         return true
     }
