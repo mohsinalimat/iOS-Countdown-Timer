@@ -148,7 +148,7 @@
                         <sections>
                             <tableViewSection footerTitle="Will display the days remaining on the Glastometer app icon" id="7a5-PZ-7v5">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MwF-cx-gVP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="MwF-cx-gVP">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MwF-cx-gVP" id="1EF-WS-Azz">
                                             <autoresizingMask key="autoresizingMask"/>
