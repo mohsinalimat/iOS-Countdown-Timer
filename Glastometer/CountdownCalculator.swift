@@ -49,17 +49,23 @@ public class CountdownCalculator
     }
 
     
-    func RemainingDays() -> Int
+    func RemainingDays() -> (days: Int, daysStr: String)
     {
         var remainingDays = DaysFromSeconds(RemainingSeconds())
-        return remainingDays
+        
+        var daysStr = "Day"                     //Set up the Day(s) string for display
+        if (remainingDays != 1) {
+            daysStr += "s"
+        }
+        
+        return (remainingDays, daysStr)
     }
     
     
     func RemainingDaysLabel() -> String
     {
         var daysStr = "Day"                     //Set up the Day(s) string for display
-        if (RemainingDays() != 1) {
+        if (RemainingDays().days != 1) {
             daysStr += "s"
         }
         return daysStr
@@ -68,8 +74,8 @@ public class CountdownCalculator
     
     func RemainingWeeks() -> (weeks: Int, days: Int)
     {
-        var remainingWeeks = RemainingDays() / 7
-        var remainingDaysAfterWeeks = RemainingDays() % 7
+        var remainingWeeks = RemainingDays().days / 7
+        var remainingDaysAfterWeeks = RemainingDays().days % 7
         
         return (remainingWeeks, remainingDaysAfterWeeks)
     }
@@ -79,11 +85,6 @@ public class CountdownCalculator
     {
         var hours:Int = (Int(RemainingSeconds()) % SECONDS_PER_DAY) / SECONDS_PER_HOUR
         var minutes:Int = ((Int(RemainingSeconds()) % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / 60
-        
-        var daysStr = "Day"                     //Set up the Day(s) string for display
-        if (RemainingDays() != 1) {
-            daysStr += "s"
-        }
         
         var hoursStr = "Hour"                     //Set up the Hour(s) string for display
         if (hours != 1) {
@@ -95,7 +96,7 @@ public class CountdownCalculator
             minutesStr += "s"
         }
         
-        return (RemainingDays(), hours, minutes, daysStr, hoursStr, minutesStr)
+        return (RemainingDays().days, hours, minutes, RemainingDays().daysStr, hoursStr, minutesStr)
     }
     
     

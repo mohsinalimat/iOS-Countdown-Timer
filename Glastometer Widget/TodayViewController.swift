@@ -28,8 +28,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
         thisCountdown.Config(targetDate!)
-        
-        mainLabel.text = String(thisCountdown.RemainingDays()) + " Days to go!"
+        var rt = thisCountdown.RemainingDays()
+        mainLabel.text = "\(rt.days) \(rt.daysStr) to go!!!"
     }
     
     override func didReceiveMemoryWarning() {

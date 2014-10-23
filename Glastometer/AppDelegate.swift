@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             thisCountdown.Config(targetDate!)
             
-            application.applicationIconBadgeNumber = thisCountdown.RemainingDays()
+            application.applicationIconBadgeNumber = thisCountdown.RemainingDays().days
         }
     }
     

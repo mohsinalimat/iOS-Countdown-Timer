@@ -142,7 +142,7 @@ class SettingsViewController : UITableViewController
         var application = UIApplication.sharedApplication()
         if (showIconBadge!){
             NSLog("Set icon badge to: \(thisCountdown.RemainingDays())")
-            application.applicationIconBadgeNumber = thisCountdown.RemainingDays()
+            application.applicationIconBadgeNumber = thisCountdown.RemainingDays().days
         }
         else {
             NSLog("Hide icon badge")

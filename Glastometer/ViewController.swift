@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         
         if (currentDisplay == 1)    // Display remaining Days
         {
-            remainingDaysLabel.text = String(thisCountdown.RemainingDays())
+            remainingDaysLabel.text = String(thisCountdown.RemainingDays().days)
             remainingUnitsLabel.text = String(thisCountdown.RemainingDaysLabel())
         }
         
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
         
         if (currentDisplay == 3)    // Display Days, Hours and Minutes
         {
-            remainingDaysLabel.text = String(thisCountdown.RemainingDays())
+            remainingDaysLabel.text = String(thisCountdown.RemainingDays().days)
             var rt = thisCountdown.RemainingDaysHoursMinutes()
             
             var unitsString: String = rt.daysStr + "\n"
