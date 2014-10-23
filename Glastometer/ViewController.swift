@@ -129,6 +129,14 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func ShowActionSheet(sender: AnyObject) {
+        let someText:String = "some text to share" //Change this to be days hours minutes etc count to target
+
+        let activityViewController = UIActivityViewController(activityItems: [someText], applicationActivities: nil)
+        self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

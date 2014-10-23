@@ -119,6 +119,9 @@
                     <navigationItem key="navigationItem" title="Glastometer" id="s62-Qw-wtw">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="zCQ-eX-UtW">
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <connections>
+                                <action selector="ShowActionSheet:" destination="BYZ-38-t0r" id="fTl-IM-U7p"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="iFP-Kk-NCg">
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
