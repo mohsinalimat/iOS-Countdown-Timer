@@ -139,8 +139,6 @@ class ViewController: UIViewController {
             
             remainingUnitsLabel.text = unitsString
         }
-        
-        
     }
     
     

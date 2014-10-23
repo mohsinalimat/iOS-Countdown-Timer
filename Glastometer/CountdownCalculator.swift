@@ -74,6 +74,7 @@ public class CountdownCalculator
         return (remainingWeeks, remainingDaysAfterWeeks)
     }
     
+    
     func RemainingDaysHoursMinutes() -> (days: Int, hours: Int, minutes: Int, hoursStr: String, minutesStr: String)
     {
         var hours:Int = (Int(RemainingSeconds()) % SECONDS_PER_DAY) / SECONDS_PER_HOUR
