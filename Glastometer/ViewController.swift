@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     let thisCountdown = CountdownCalculator()
     let CHANGE_BACKGROUND_TIME:Int = 5 //Seconds - this does not work in the NSTimer.scheduledTimerWithTimeInterval parameters?!?
     
-    let numberOfDisplays:Int = 2 //There are currently 2 types of display, Remaining Days OR Remaining Weeks and Days
+    let numberOfDisplays:Int = 3
     
     
 //Variables *******************************************************************
@@ -112,12 +112,13 @@ class ViewController: UIViewController {
     
     
     func updateDisplay(){
+        
         if (currentDisplay == 1)    // Display remaining Days
-
         {
             remainingDaysLabel.text = String(thisCountdown.RemainingDays())
             remainingUnitsLabel.text = String(thisCountdown.RemainingDaysLabel())
         }
+        
         if (currentDisplay == 2)    // Display weeks and days
         {
             var weeksObj = thisCountdown.RemainingWeeks()
@@ -126,6 +127,20 @@ class ViewController: UIViewController {
             remainingDaysLabel.text = String(weeksObj.weeks)
             remainingUnitsLabel.text = labelObj.weeksLbl + "\r" + String(weeksObj.days) + " " + labelObj.daysLbl
         }
+        
+        if (currentDisplay == 3)    // Display Days, Hours and Minutes
+        {
+            remainingDaysLabel.text = String(thisCountdown.RemainingDays())
+            var rt = thisCountdown.RemainingDaysHoursMinutes()
+            
+            var unitsString: String = thisCountdown.RemainingDaysLabel() + "\n"
+            unitsString += String(rt.hours) + " " + rt.hoursStr + "\n"
+            unitsString += String(rt.minutes) + " " + rt.minutesStr
+            
+            remainingUnitsLabel.text = unitsString
+        }
+        
+        
     }
     
     

@@ -40,12 +40,18 @@ public class CountdownCalculator
     }
     
     
-    func RemainingDays() -> Int
+    func RemainingSeconds() -> Double
     {
         var now = NSDate()
         var target = DateFromString(targetDateTime)
         var remaining = target.timeIntervalSinceDate(now)
-        var remainingDays = DaysFromSeconds(remaining)
+        return remaining
+    }
+
+    
+    func RemainingDays() -> Int
+    {
+        var remainingDays = DaysFromSeconds(RemainingSeconds())
         return remainingDays
     }
     
@@ -66,6 +72,24 @@ public class CountdownCalculator
         var remainingDaysAfterWeeks = RemainingDays() % 7
         
         return (remainingWeeks, remainingDaysAfterWeeks)
+    }
+    
+    func RemainingDaysHoursMinutes() -> (days: Int, hours: Int, minutes: Int, hoursStr: String, minutesStr: String)
+    {
+        var hours:Int = (Int(RemainingSeconds()) % SECONDS_PER_DAY) / SECONDS_PER_HOUR
+        var minutes:Int = ((Int(RemainingSeconds()) % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / 60
+        
+        var hoursStr = "Hour"                     //Set up the Hour(s) string for display
+        if (hours != 1) {
+            hoursStr += "s"
+        }
+
+        var minutesStr = "Minute"                     //Set up the Minute(s) string for display
+        if (minutes != 1) {
+            minutesStr += "s"
+        }
+        
+        return (RemainingDays(), hours, minutes, hoursStr, minutesStr)
     }
     
     
