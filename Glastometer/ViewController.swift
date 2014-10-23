@@ -133,7 +133,7 @@ class ViewController: UIViewController {
             remainingDaysLabel.text = String(thisCountdown.RemainingDays())
             var rt = thisCountdown.RemainingDaysHoursMinutes()
             
-            var unitsString: String = thisCountdown.RemainingDaysLabel() + "\n"
+            var unitsString: String = rt.daysStr + "\n"
             unitsString += String(rt.hours) + " " + rt.hoursStr + "\n"
             unitsString += String(rt.minutes) + " " + rt.minutesStr
             
@@ -143,9 +143,19 @@ class ViewController: UIViewController {
     
     
     @IBAction func ShowActionSheet(sender: AnyObject) {
-        let someText:String = "some text to share" //Change this to be days hours minutes etc count to target
-
-        let activityViewController = UIActivityViewController(activityItems: [someText], applicationActivities: nil)
+        
+        var rt = thisCountdown.RemainingDaysHoursMinutes()
+        
+        var sharingMessageEnd = defaults.objectForKey("sharingMessage") as? String!
+        if (sharingMessageEnd! == nil) {
+                sharingMessageEnd = "to Glastonbury Festival 2015"
+        }
+        
+        //Construct sharing string
+        let sharingText:String = "\(rt.days) \(rt.daysStr), \(rt.hours) \(rt.hoursStr), \(rt.minutes) \(rt.minutesStr) \(sharingMessageEnd!)"
+        
+        //Load sharing view controller with above string
+        let activityViewController = UIActivityViewController(activityItems: [sharingText], applicationActivities: nil)
         self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
     }
     

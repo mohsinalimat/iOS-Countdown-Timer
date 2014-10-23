@@ -75,10 +75,15 @@ public class CountdownCalculator
     }
     
     
-    func RemainingDaysHoursMinutes() -> (days: Int, hours: Int, minutes: Int, hoursStr: String, minutesStr: String)
+    func RemainingDaysHoursMinutes() -> (days: Int, hours: Int, minutes: Int, daysStr: String, hoursStr: String, minutesStr: String)
     {
         var hours:Int = (Int(RemainingSeconds()) % SECONDS_PER_DAY) / SECONDS_PER_HOUR
         var minutes:Int = ((Int(RemainingSeconds()) % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / 60
+        
+        var daysStr = "Day"                     //Set up the Day(s) string for display
+        if (RemainingDays() != 1) {
+            daysStr += "s"
+        }
         
         var hoursStr = "Hour"                     //Set up the Hour(s) string for display
         if (hours != 1) {
@@ -90,7 +95,7 @@ public class CountdownCalculator
             minutesStr += "s"
         }
         
-        return (RemainingDays(), hours, minutes, hoursStr, minutesStr)
+        return (RemainingDays(), hours, minutes, daysStr, hoursStr, minutesStr)
     }
     
     

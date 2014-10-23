@@ -14,6 +14,7 @@ class SettingsViewController : UITableViewController
     var editTargetDate:Bool = false;
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     var showIconBadge: Bool!
+    var sharingMessage: String!
     
     
     //Constants
@@ -38,6 +39,12 @@ class SettingsViewController : UITableViewController
         }
         iconBadgeSwitch.setOn(showIconBadge!, animated: true)
         
+        
+        // Get the sharing message from NSUserDefaults
+        sharingMessage = defaults.objectForKey("sharingMessage") as? String
+        if (sharingMessage == nil) {
+            sharingMessage = "to Glastonbury Festival 2015"
+        }
         
         // Get the target date from NSUserDefaults
         var targetDateString = defaults.objectForKey("targetDate") as? String!
