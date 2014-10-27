@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let thisCountdown = CountdownCalculator()
+    let iconBadge = IconBadge()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -24,56 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
     
     func application(application: UIApplication!, performFetchWithCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)!)
     {
         NSLog("Starting background fetch")
-        setBadge(application)
+        iconBadge.setBadge()
         
         //This is just for testing (use above line) - comment to test commit.
-        //testBackgroundFetch(application)
+        //iconBadge.testBackgroundFetch()
         
         completionHandler(UIBackgroundFetchResult.NewData)
         
         NSLog("Finished background fetch")
     }
-    
-    
-    //--- Test function to set the icon badge to the current time in HHmm - used to test frequency of BackgroundFetchIntervalMinimum
-    func testBackgroundFetch(application: UIApplication)
-    {
-        var now = NSDate()
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "HHmm"
-        formatter.stringFromDate(now)
-        var myTime:Int
-        myTime = formatter.stringFromDate(now).toInt()!
-        
-        application.applicationIconBadgeNumber = myTime
-    }
-    
-    
-    func setBadge(application: UIApplication)
-    {
-        var defaults = NSUserDefaults(suiteName: "group.glastometer.com")!
-        
-        // Get the icon badge switch state from NSUserDefaults
-        var showIconBadge = defaults.objectForKey("showIconBadge") as? Bool
-        if (showIconBadge!)
-        {
-            var targetDate = defaults.objectForKey("targetDate") as? String!
-            if (targetDate == nil) {
-                targetDate = "2014-12-25 12:34"
-            }
-            
-            thisCountdown.Config(targetDate!)
-            
-            application.applicationIconBadgeNumber = thisCountdown.RemainingDays().days
-        }
-    }
-    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -84,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        setBadge(application)
+        //iconBadge.setBadge()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

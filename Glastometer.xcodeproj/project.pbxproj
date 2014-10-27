@@ -29,6 +29,7 @@
 		D85AF28919E2B5DC00F140CC /* Bg8.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF28019E2B5DC00F140CC /* Bg8.png */; };
 		D85AF28A19E2B5DC00F140CC /* Bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = D85AF28119E2B5DC00F140CC /* Bg1.png */; };
 		D894C18B19E49EC800119BA9 /* CountdownCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */; };
+		D8D52D0219FEF51800D9A10A /* IconBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D52D0119FEF51800D9A10A /* IconBadge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		D85AF28019E2B5DC00F140CC /* Bg8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg8.png; sourceTree = "<group>"; };
 		D85AF28119E2B5DC00F140CC /* Bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bg1.png; path = Glastometer/Bg1.png; sourceTree = SOURCE_ROOT; };
 		D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownCalculator.swift; sourceTree = "<group>"; };
+		D8D52D0119FEF51800D9A10A /* IconBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconBadge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				D85AF25A19E2B4EC00F140CC /* ViewController.swift */,
 				D816302519ED3D9800282D04 /* SettingsViewController.swift */,
 				D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */,
+				D8D52D0119FEF51800D9A10A /* IconBadge.swift */,
 				D85AF25C19E2B4EC00F140CC /* Main.storyboard */,
 				D85AF25F19E2B4EC00F140CC /* Images.xcassets */,
 				D85AF26119E2B4EC00F140CC /* LaunchScreen.xib */,
@@ -396,6 +399,7 @@
 				D85AF25B19E2B4EC00F140CC /* ViewController.swift in Sources */,
 				D85AF25919E2B4EC00F140CC /* AppDelegate.swift in Sources */,
 				D816302619ED3D9900282D04 /* SettingsViewController.swift in Sources */,
+				D8D52D0219FEF51800D9A10A /* IconBadge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
