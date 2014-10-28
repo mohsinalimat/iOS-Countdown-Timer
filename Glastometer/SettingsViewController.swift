@@ -23,7 +23,7 @@ class SettingsViewController : UITableViewController
     let ROW_FOR_DATE_PICKER = 1
     
     let thisCountdown = CountdownCalculator()
-    
+    let iconBadge = IconBadge()
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateDetail: UILabel!
@@ -139,15 +139,7 @@ class SettingsViewController : UITableViewController
     
     func showHideIconBadge()
     {
-        var application = UIApplication.sharedApplication()
-        if (showIconBadge!){
-            NSLog("Set icon badge to: \(thisCountdown.RemainingDays())")
-            application.applicationIconBadgeNumber = thisCountdown.RemainingDays().days
-        }
-        else {
-            NSLog("Hide icon badge")
-            application.applicationIconBadgeNumber = 0
-        }
+        iconBadge.setBadge()
     }
     
 }

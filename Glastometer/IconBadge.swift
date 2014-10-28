@@ -16,7 +16,7 @@ public class IconBadge
 {
     let thisCountdown = CountdownCalculator()
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
-    
+    let MAXIMUM_NOTIFICATIONS = 365
     
     func setBadge()
     {
@@ -34,6 +34,7 @@ public class IconBadge
             }
             thisCountdown.Config(targetDate!)
             
+            application.cancelAllLocalNotifications()
             application.scheduledLocalNotifications = localNotificationsStartingTomorrow()
             
             // Set the icon badge
@@ -41,79 +42,52 @@ public class IconBadge
         }
         else
         {
+            //Cancel all local notifications and set icon badge to 0 (hidden)
+            application.cancelAllLocalNotifications()
             application.applicationIconBadgeNumber = 0 //Hide the badge if this option is turned off.
         }
     }
-    
     
     
     func localNotificationsStartingTomorrow() -> [UILocalNotification]
     {
         var localNotifications: [UILocalNotification] = []
     
-        for var i = 0; i < 365; i++
+        var daysRemaining: Int = thisCountdown.RemainingDays().days
+        let date: NSDate = NSDate()
+        
+        for var i = 1; i < MAXIMUM_NOTIFICATIONS; i++
         {
             var notification: UILocalNotification = UILocalNotification()
-            notification.applicationIconBadgeNumber = i
-            notification.fireDate = NSDate(timeIntervalSinceNow: (NSTimeInterval)(1 + (3 * i)))
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
             
+            //Set the badge number for this notification
+            notification.applicationIconBadgeNumber = daysRemaining - i
+            
+            //Create a firedate of midnight for this notification
+            var components = NSDateComponents()
+            components.setValue(i, forComponent: NSCalendarUnit.CalendarUnitDay);
+            var notificationFireDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(0))
+            notificationFireDate = NSCalendar.currentCalendar().dateBySettingHour(0, minute: 0, second: 0, ofDate: notificationFireDate!, options: NSCalendarOptions())
+            
+            NSLog("\(notificationFireDate) \(daysRemaining - i)")
+            
+            //Set the fire date
+            notification.fireDate = notificationFireDate
+            
+            //Add this notification to the array of notification to be returned from this function
             localNotifications.append(notification)
+            
+            //Stop adding notifications when the days remaining count reaches 0
+            if (daysRemaining - i == 0)
+            {
+                i = MAXIMUM_NOTIFICATIONS
+            }
         }
         
         return localNotifications
     }
     
-    /*
-    
-    
-    -(NSArray *) localNotificationsStartingTomorrow{
-    
-    //Create an array of 64 notifications (64 is the maximum allowed per application)
-    NSMutableArray *localNotifications = [[NSMutableArray alloc] initWithCapacity:64];
-    
-    for (NSUInteger i = 0; i < 64; i++){
-    //Create a new local notification
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.hasAction = NO;
-    
-    //Create today's midnight date
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *todaysDateComponents = [calendar components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
-    NSDate *todaysMidnight = [calendar dateFromComponents:todaysDateComponents];
-    
-    //Create the fire date
-    NSDateComponents *addedDaysComponents = [[NSDateComponents alloc] init];
-    addedDaysComponents.day = i;
-    NSDate *fireDate = [calendar dateByAddingComponents:addedDaysComponents toDate:todaysMidnight options:0];
-    
-    //Set the fire date and time zone
-    notification.fireDate = fireDate;
-    notification.timeZone = [NSTimeZone systemTimeZone];
-    
-    //Set the badge number
-    notification.applicationIconBadgeNumber = [self remainingDays] - (i + self.fudgeFactor);
-    //NSLog(@"Notification: %@, Days %lu", fireDate, [self remainingDays] - (i + self.fudgeFactor));
-    
-    //Add the notification to the array
-    [localNotifications addObject:notification];
-    }
-    
-    return [localNotifications copy];
-    }
 
-    
-    */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //--- Test function to set the icon badge to the current time in HHmm - used to test frequency of BackgroundFetchIntervalMinimum
     func testBackgroundFetch()
     {
@@ -128,8 +102,13 @@ public class IconBadge
         var application: UIApplication = UIApplication.sharedApplication()
         application.applicationIconBadgeNumber = myTime
     }
-    
-
-    
-    
 }
+
+
+/*
+//Notification called every 3 seconds
+var notification: UILocalNotification = UILocalNotification()
+notification.applicationIconBadgeNumber = i
+notification.fireDate = NSDate(timeIntervalSinceNow: (NSTimeInterval)(1 + (3 * i)))
+*/
+
