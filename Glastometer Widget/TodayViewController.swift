@@ -22,14 +22,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
         
         var targetDate = defaults.objectForKey("targetDate") as? String!
-        
         if (targetDate == nil) {
             targetDate = "2014-12-25 12:34"
         }
         
         thisCountdown.Config(targetDate!)
         var rt = thisCountdown.RemainingDays()
-        mainLabel.text = "\(rt.days) \(rt.daysStr) to go!!!"
+        
+        var sharingMessageEnd = defaults.objectForKey("sharingMessage") as? String!
+        if (sharingMessageEnd! == nil) {
+            sharingMessageEnd = "to Glastonbury Festival 2015"
+        }
+        
+        mainLabel.text = "\(rt.days) \(rt.daysStr) " + sharingMessageEnd!
     }
     
     override func didReceiveMemoryWarning() {
