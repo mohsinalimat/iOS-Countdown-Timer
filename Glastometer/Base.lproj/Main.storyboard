@@ -268,24 +268,37 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="YzJ-Br-L8R" detailTextLabel="p91-MI-x3V" style="IBUITableViewCellStyleValue1" id="GrU-o5-5LB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tey-8V-Ivo">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GrU-o5-5LB" id="nc3-SV-vfT">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tey-8V-Ivo" id="riY-O6-za1">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Share Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YzJ-Br-L8R">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Share message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ5-fT-PeD">
+                                                    <rect key="frame" x="16" y="12" width="113" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="113" id="pvL-LA-d7q"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="to Glasto!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p91-MI-x3V">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="shareMessage" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cfX-Nt-0NK" userLabel="shareMessage">
+                                                    <rect key="frame" x="153" y="7" width="431" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="XDY-z8-vzn"/>
+                                                    </constraints>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="OZ5-fT-PeD" secondAttribute="centerY" id="GHI-Gf-5UQ"/>
+                                                <constraint firstItem="cfX-Nt-0NK" firstAttribute="trailing" secondItem="riY-O6-za1" secondAttribute="trailingMargin" constant="-8" id="dRI-Iz-BTe"/>
+                                                <constraint firstItem="OZ5-fT-PeD" firstAttribute="leading" secondItem="riY-O6-za1" secondAttribute="leadingMargin" constant="8" id="eIC-QY-wrl"/>
+                                                <constraint firstItem="cfX-Nt-0NK" firstAttribute="leading" secondItem="OZ5-fT-PeD" secondAttribute="trailing" constant="24" id="kov-X3-bx7"/>
+                                                <constraint firstAttribute="centerY" secondItem="cfX-Nt-0NK" secondAttribute="centerY" id="tap-U2-RQ5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -364,7 +377,9 @@
                     <connections>
                         <outlet property="dateDetail" destination="PL5-hf-hi5" id="Mtb-tH-B0S"/>
                         <outlet property="datePicker" destination="X9z-XK-1iX" id="RdM-Mg-dWO"/>
+                        <outlet property="eventNameTextField" destination="iZ8-gb-See" id="6cX-8L-VF9"/>
                         <outlet property="iconBadgeSwitch" destination="58q-NN-7ny" id="CEn-n6-RSx"/>
+                        <outlet property="shareMessageTextField" destination="cfX-Nt-0NK" id="PQm-GR-fI9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMp-dw-muc" userLabel="First Responder" sceneMemberID="firstResponder"/>

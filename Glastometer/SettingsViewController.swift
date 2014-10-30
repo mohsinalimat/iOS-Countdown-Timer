@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SettingsViewController : UITableViewController
+class SettingsViewController : UITableViewController, UITextFieldDelegate, UIActionSheetDelegate
 {
     var editTargetDate:Bool = false;
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
@@ -29,8 +29,14 @@ class SettingsViewController : UITableViewController
     @IBOutlet weak var dateDetail: UILabel!
     @IBOutlet weak var iconBadgeSwitch: UISwitch!
     
+    @IBOutlet weak var eventNameTextField: UITextField!
+    @IBOutlet weak var shareMessageTextField: UITextField!
+    
     
     override func viewDidLoad() {
+        
+        eventNameTextField.delegate = self //this is required so the keyboard can be dismissed
+        shareMessageTextField.delegate = self
         
         // Get the icon badge switch state from NSUserDefaults
         showIconBadge = defaults.objectForKey("showIconBadge") as? Bool
@@ -69,6 +75,20 @@ class SettingsViewController : UITableViewController
         
         //Add a target to be called when the date picker changes date.
         datePicker.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        //Set the eventName and shareMessage text fields
+        var eventName = defaults.objectForKey("eventName") as? String!
+        if (eventName! == nil) {
+            eventName = "blank event name"
+        }
+        eventNameTextField.text = eventName!
+        
+        var shareMessage = defaults.objectForKey("shareMessage") as? String!
+        if (shareMessage! == nil) {
+            shareMessage = "blank share message"
+        }
+        shareMessageTextField.text = shareMessage!
+
     }
     
     
@@ -140,6 +160,35 @@ class SettingsViewController : UITableViewController
     func showHideIconBadge()
     {
         iconBadge.setBadge()
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        var thisTextField: String = ""
+        
+        if textField == eventNameTextField
+        {
+            NSLog("event Name text field")
+            thisTextField = "eventName"
+        }
+        
+        if textField == shareMessageTextField
+        {
+            NSLog("share message text field")
+            thisTextField = "shareMessage"
+        }
+
+        
+        if (thisTextField != "")
+        {
+            //Must test if thisTextField string is nil
+            defaults.setObject(textField.text, forKey: thisTextField)
+            defaults.synchronize()
+        }
+        
+        return true
     }
     
 }
