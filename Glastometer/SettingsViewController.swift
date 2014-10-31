@@ -161,9 +161,11 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     {
         iconBadge.setBadge()
     }
+   
     
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldDidEndEditing(textField: UITextField) {
+        NSLog("textFieldDidEndEditing")
+        
         textField.resignFirstResponder()
         
         var thisTextField: String = ""
@@ -179,7 +181,6 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
             NSLog("share message text field")
             thisTextField = "shareMessage"
         }
-
         
         if (thisTextField != "")
         {
@@ -187,7 +188,13 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
             defaults.setObject(textField.text, forKey: thisTextField)
             defaults.synchronize()
         }
-        
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        NSLog("textFieldShouldReturn")
+        textField.resignFirstResponder()
+
         return true
     }
     
