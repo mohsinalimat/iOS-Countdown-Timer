@@ -9,8 +9,13 @@
 import Foundation
 import UIKit
 
+protocol SettingsViewControllerDelegate{
+    func myVCDidFinish(controller:SettingsViewController)
+}
+
 class SettingsViewController : UITableViewController, UITextFieldDelegate, UIActionSheetDelegate
 {
+    
     var editTargetDate:Bool = false;
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     var showIconBadge: Bool!
@@ -197,5 +202,10 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
 
         return true
     }
-    
+
+    @IBAction func doneButton(sender: AnyObject) {
+        if((self.presentingViewController) != nil){
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController  {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var remainingDaysLabel: UILabel!
@@ -158,13 +158,12 @@ class ViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: [sharingText], applicationActivities: nil)
         self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
     }
-    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uQV-UI-qiQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -80,9 +80,26 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60J-sf-cZp">
+                                <rect key="frame" x="538" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RGX-Ng-PuP"/>
+                                    <constraint firstAttribute="width" constant="46" id="qzQ-ua-ZMv"/>
+                                </constraints>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="R25-9X-Uva" kind="popoverPresentation" popoverAnchorView="60J-sf-cZp" id="zkZ-Gx-GKP">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="60J-sf-cZp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="05n-pY-E5t"/>
                             <constraint firstItem="lu5-WG-Ls5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BUp-IT-n70"/>
                             <constraint firstItem="Bwm-ik-GjJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fcz-nB-k3f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bwm-ik-GjJ" secondAttribute="trailing" id="IJe-RJ-1lf"/>
@@ -95,6 +112,7 @@
                             <constraint firstItem="Bwm-ik-GjJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bVx-Vr-JHY"/>
                             <constraint firstAttribute="trailing" secondItem="qll-r0-cpG" secondAttribute="trailing" id="kKu-6U-u7N"/>
                             <constraint firstItem="Bwm-ik-GjJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nMf-2x-GEd"/>
+                            <constraint firstItem="60J-sf-cZp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nkM-bK-47r"/>
                             <constraint firstItem="qll-r0-cpG" firstAttribute="leading" secondItem="lu5-WG-Ls5" secondAttribute="trailing" constant="263" id="otz-0i-iVl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lu5-WG-Ls5" secondAttribute="bottom" constant="10" id="sm3-xR-DDU"/>
                             <constraint firstItem="qll-r0-cpG" firstAttribute="leading" secondItem="lu5-WG-Ls5" secondAttribute="trailing" id="ueU-7F-gec"/>
@@ -125,9 +143,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="iFP-Kk-NCg">
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                            <connections>
-                                <segue destination="FGV-HH-CJs" kind="show" id="eb3-D4-paC"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -373,6 +388,13 @@
                             <outlet property="delegate" destination="FGV-HH-CJs" id="4U1-ot-tR6"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="PEO-a5-NvS">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="u7b-ri-GY8">
+                            <connections>
+                                <action selector="doneButton:" destination="FGV-HH-CJs" id="yyT-2x-DtI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dateDetail" destination="PL5-hf-hi5" id="Mtb-tH-B0S"/>
@@ -384,25 +406,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMp-dw-muc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821" y="128"/>
+            <point key="canvasLocation" x="2633" y="128"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="QPd-br-WOC">
+        <scene sceneID="uBZ-2p-xiP">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uQV-UI-qiQ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R25-9X-Uva" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xkh-e7-KzS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ed-RI-LMz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KaE-uP-4Bg"/>
+                        <segue destination="FGV-HH-CJs" kind="relationship" relationship="rootViewController" id="InD-1r-sKO"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iwL-nh-jgw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="44b-DK-SnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139.5" y="135"/>
+            <point key="canvasLocation" x="1821" y="128"/>
         </scene>
     </scenes>
     <resources>
