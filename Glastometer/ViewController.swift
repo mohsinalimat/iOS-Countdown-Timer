@@ -16,7 +16,8 @@ class ViewController: UIViewController  {
     
 //Constants *******************************************************************
     let thisCountdown = CountdownCalculator()
-    let CHANGE_BACKGROUND_TIME:Int = 5 //Seconds - this does not work in the NSTimer.scheduledTimerWithTimeInterval parameters?!?
+    let CHANGE_BACKGROUND_TIME:Int = 5  //Seconds - Time between image changes
+    let IMAGE_FADE_TIME:Int = 2         //Seconds - Animation time (to change images)
     
     let numberOfDisplays:Int = 3
     
@@ -25,10 +26,12 @@ class ViewController: UIViewController  {
     var currentDisplay = 1
     
     //Load the images into an array (could this array be a let?)
-    var backgroundImages: [UIImage] = [
-        UIImage(named: "Bg1.png")!, UIImage(named: "Bg2.png")!, UIImage(named: "Bg3.png")!, UIImage(named: "Bg4.png")!,
-        UIImage(named: "Bg5.png")!, UIImage(named: "Bg6.png")!, UIImage(named: "Bg8.png")!, UIImage(named: "Bg9.png")!,
-        UIImage(named: "Bg11.png")!]
+    //var backgroundImages: [UIImage] = [
+    //    UIImage(named: "Bg1.png")!, UIImage(named: "Bg2.png")!, UIImage(named: "Bg3.png")!, UIImage(named: "Bg4.png")!,
+    //    UIImage(named: "Bg5.png")!, UIImage(named: "Bg6.png")!, UIImage(named: "Bg8.png")!, UIImage(named: "Bg9.png")!,
+    //    UIImage(named: "Bg11.png")!]
+    
+    var backgroundImageNames: [String] = ["Bg1", "Bg2", "Bg3", "Bg4", "Bg5", "Bg6", "Bg8", "Bg9", "Bg11" ]
     
     var photoCount:Int = 0
     
@@ -39,14 +42,15 @@ class ViewController: UIViewController  {
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        backgroundImageView.image = backgroundImages[0];
+        //backgroundImageView.image = backgroundImages[0];
+
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         //Start Change image timer
-        var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
+        var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
         
         setTheTargetDate()
         updateDisplay()
@@ -79,23 +83,29 @@ class ViewController: UIViewController  {
     
     func changeImage() {
         
-        if (photoCount < backgroundImages.count - 1)
+        if (photoCount < backgroundImageNames.count - 1)
         {
             photoCount++
         } else {
             photoCount = 0
         }
         
-        //let toImage = UIImage(named: "Bg2.png")  
-        //let toImage = UIImage(contentsOfFile: "/Users/Joe/Desktop/Projects/Glastometer/Glastometer/Bg2.png")  // This is the one I want to use but need to figure out the path when running on a device
+        //This uses an array of images (defined at the top, now commented out)... all images get loaded into memory and apps foot print increases to ~180MB
+        //let toImage = backgroundImages[photoCount]
+
+        //uses UIImage(named: Stirng) function, this has the same effect as using the array of images above.
+        //let toImage = UIImage(named: backgroundImageNames[photoCount])
         
-        let toImage = backgroundImages[photoCount]
+        //using UIImage(contentsOfFile: String) function, images are not cached, keeping memory foot print much lower, ~50MB
+        let bundle = NSBundle.mainBundle()
+        let path = bundle.pathForResource(backgroundImageNames[photoCount], ofType: "png") //backgroundImageNames is an array of String of the images names ie Bg1, Bg2 etc
+        let toImage = UIImage(contentsOfFile: String(path!))
+        
         UIView.transitionWithView(self.backgroundImageView,
-            duration:2,
+            duration:NSTimeInterval(IMAGE_FADE_TIME),
             options: UIViewAnimationOptions.TransitionCrossDissolve,
             animations: { self.backgroundImageView.image = toImage },
             completion: nil)
-        //NSLog("Image changed")
     }
     
     
