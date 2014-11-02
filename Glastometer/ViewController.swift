@@ -16,6 +16,7 @@ class ViewController: UIViewController  {
     
 //Constants *******************************************************************
     let thisCountdown = CountdownCalculator()
+    let savedSettings = SavedSettings()
     let CHANGE_BACKGROUND_TIME:Int = 5  //Seconds - Time between image changes
     let IMAGE_FADE_TIME:Int = 2         //Seconds - Animation time (to change images)
     
@@ -45,9 +46,9 @@ class ViewController: UIViewController  {
         //backgroundImageView.image = backgroundImages[0];
 
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        //self.navigationController?.navigationBar.shadowImage = UIImage()
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         //Start Change image timer
         var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
@@ -61,7 +62,7 @@ class ViewController: UIViewController  {
 
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBar.translucent = true;
+        //self.navigationController?.navigationBar.translucent = true;
         
         // Put code here to set the target date... it may have just been changed in the settings TVC.
         setTheTargetDate()
@@ -71,6 +72,7 @@ class ViewController: UIViewController  {
     func setTheTargetDate() {
         
         // Get the target date from NSUserDefaults
+        /*
         var targetDateString = defaults.objectForKey("targetDate") as? String!
         
         if (targetDateString! == nil) {
@@ -78,6 +80,9 @@ class ViewController: UIViewController  {
         }
         
         thisCountdown.Config(targetDateString!)
+        */
+        
+        thisCountdown.Config(savedSettings.targetDate)
     }
     
     
