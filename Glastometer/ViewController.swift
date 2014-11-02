@@ -142,13 +142,12 @@ class ViewController: UIViewController  {
     }
     
     
-    @IBAction func ShowActionSheet(sender: AnyObject) {
-        
+    @IBAction func ShowActionSheetButton(sender: AnyObject) {
         var rt = thisCountdown.RemainingDaysHoursMinutes()
         
         var sharingMessageEnd = defaults.objectForKey("sharingMessage") as? String!
         if (sharingMessageEnd! == nil) {
-                sharingMessageEnd = "to Glastonbury Festival 2015"
+            sharingMessageEnd = "to Glastonbury Festival 2015"
         }
         
         //Construct sharing string
@@ -156,9 +155,10 @@ class ViewController: UIViewController  {
         
         //Load sharing view controller with above string
         let activityViewController = UIActivityViewController(activityItems: [sharingText], applicationActivities: nil)
-        self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
+        activityViewController.popoverPresentationController?.sourceView = sender as UIView //required by iPad - so the popover hase somewhere to anchor to.
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
-
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

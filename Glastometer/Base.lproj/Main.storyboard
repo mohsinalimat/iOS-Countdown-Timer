@@ -80,12 +80,13 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60J-sf-cZp">
-                                <rect key="frame" x="538" y="20" width="46" height="30"/>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60J-sf-cZp">
+                                <rect key="frame" x="546" y="28" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RGX-Ng-PuP"/>
                                     <constraint firstAttribute="width" constant="46" id="qzQ-ua-ZMv"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,10 +97,25 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfG-Yp-b0E">
+                                <rect key="frame" x="8" y="28" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="EJN-Lc-sM8"/>
+                                    <constraint firstAttribute="height" constant="30" id="Zw4-SU-clW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ShowActionSheetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dNi-PV-cfc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="60J-sf-cZp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="05n-pY-E5t"/>
+                            <constraint firstItem="60J-sf-cZp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="100" id="05n-pY-E5t"/>
+                            <constraint firstItem="tfG-Yp-b0E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="7Jb-oH-cIq"/>
                             <constraint firstItem="lu5-WG-Ls5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BUp-IT-n70"/>
                             <constraint firstItem="Bwm-ik-GjJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fcz-nB-k3f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bwm-ik-GjJ" secondAttribute="trailing" id="IJe-RJ-1lf"/>
@@ -112,12 +128,15 @@
                             <constraint firstItem="Bwm-ik-GjJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bVx-Vr-JHY"/>
                             <constraint firstAttribute="trailing" secondItem="qll-r0-cpG" secondAttribute="trailing" id="kKu-6U-u7N"/>
                             <constraint firstItem="Bwm-ik-GjJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nMf-2x-GEd"/>
-                            <constraint firstItem="60J-sf-cZp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nkM-bK-47r"/>
+                            <constraint firstItem="60J-sf-cZp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="nkM-bK-47r"/>
                             <constraint firstItem="qll-r0-cpG" firstAttribute="leading" secondItem="lu5-WG-Ls5" secondAttribute="trailing" constant="263" id="otz-0i-iVl"/>
+                            <constraint firstItem="tfG-Yp-b0E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="poe-iw-7I4"/>
+                            <constraint firstItem="60J-sf-cZp" firstAttribute="leading" secondItem="Bwm-ik-GjJ" secondAttribute="trailing" constant="38" id="qFC-QM-dlC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lu5-WG-Ls5" secondAttribute="bottom" constant="10" id="sm3-xR-DDU"/>
                             <constraint firstItem="qll-r0-cpG" firstAttribute="leading" secondItem="lu5-WG-Ls5" secondAttribute="trailing" id="ueU-7F-gec"/>
                             <constraint firstAttribute="trailing" secondItem="Bwm-ik-GjJ" secondAttribute="trailing" id="ufV-bu-al1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bwm-ik-GjJ" secondAttribute="bottom" id="yTl-EQ-Bsw"/>
+                            <constraint firstItem="60J-sf-cZp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="8" id="yab-rH-Cgu"/>
                             <constraint firstItem="Bwm-ik-GjJ" firstAttribute="trailing" secondItem="y3c-jy-aDJ" secondAttribute="trailing" id="ycz-Kk-DGQ"/>
                         </constraints>
                         <variation key="default">
@@ -129,6 +148,8 @@
                                 <exclude reference="TbV-Ff-idl"/>
                                 <exclude reference="Yul-ka-Gxz"/>
                                 <exclude reference="ycz-Kk-DGQ"/>
+                                <exclude reference="05n-pY-E5t"/>
+                                <exclude reference="qFC-QM-dlC"/>
                                 <exclude reference="otz-0i-iVl"/>
                                 <exclude reference="ueU-7F-gec"/>
                             </mask>
