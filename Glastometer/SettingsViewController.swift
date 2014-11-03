@@ -9,23 +9,16 @@
 import Foundation
 import UIKit
 
-protocol SettingsViewControllerDelegate{
-    func myVCDidFinish(controller:SettingsViewController)
-}
-
 class SettingsViewController : UITableViewController, UITextFieldDelegate, UIActionSheetDelegate
 {
-    
     var editTargetDate:Bool = false;
-    //var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     var showIconBadge: Bool!
-    //var sharingMessage: String!
-    
     
     //Constants
     let SECTION_FOR_DATE = 1
     let ROW_FOR_DATE = 0
     let ROW_FOR_DATE_PICKER = 1
+    let SECTION_FOR_RESET = 3
     
     let thisCountdown = CountdownCalculator()
     let iconBadge = IconBadge()
@@ -46,8 +39,6 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         // Get the icon badge switch state from NSUserDefaults
         showIconBadge = SavedSettings().showIconBadge
         iconBadgeSwitch.setOn(showIconBadge!, animated: true)
-        
-        //sharingMessage = SavedSettings().sharingMessage
         
         // Get the target date from NSUserDefaults
         var targetDateString = SavedSettings().targetDate
@@ -124,19 +115,45 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
             editTargetDate = !editTargetDate
             self.tableView.reloadData()
         }
+       
+        if (indexPath.section == SECTION_FOR_RESET)
+        {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            resetAllSettings()
+        }
     }
 
+    
+    func resetAllSettings()
+    {
+        let alertController = UIAlertController(title: "Reset Custom Settings?", message: "All settings will revert to Glastonbury Festival 2015", preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            NSLog("Cancel Pressed")
+            //Nothing to do, cancel pressed.
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            NSLog("Ok Pressed")
+           
+            SavedSettings().ResetAllSettings()
+            self.viewDidLoad()
+            
+        }
+        alertController.addAction(OKAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            // Nothing to do here... maybe deselect this row?
+        }
+    }
+    
     
     @IBAction func iconBadgeSwitchPressed(sender: AnyObject)
     {
         showIconBadge = !showIconBadge
         
         SavedSettings().showIconBadge = showIconBadge
-        
-        /*
-        defaults.setObject(showIconBadge, forKey: "showIconBadge")
-        defaults.synchronize()
-        */
         
         showHideIconBadge()
     }
@@ -147,6 +164,9 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         iconBadge.setBadge()
     }
    
+    
+    
+    
     
     func textFieldDidEndEditing(textField: UITextField) {
         NSLog("textFieldDidEndEditing")

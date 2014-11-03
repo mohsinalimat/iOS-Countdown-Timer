@@ -10,11 +10,27 @@ import Foundation
 
 public class SavedSettings
 {
+    let TARGET_DATE:String      = "2014-12-25 08:00"
+    let SHARING_MESSAGE:String  = "to Glastonbury Festival 2015"
+    let EVENT_NAME:String       = "Glastonbury"
+    let SHOW_ICON_BADGE:Bool    = true
+    
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+    
+    
+    func ResetAllSettings()
+    {
+        defaults.setObject(TARGET_DATE, forKey: "targetDate")
+        defaults.setObject(SHARING_MESSAGE, forKey: "sharingMessage")
+        defaults.setObject(EVENT_NAME, forKey: "eventName")
+        defaults.setObject(SHOW_ICON_BADGE, forKey: "showIconBadge")
+        defaults.synchronize()
+    }
+
     
     var targetDate: String {
         get {   NSLog("Saved Settings Class - get - targetDate")
-                return (defaults.objectForKey("targetDate") as? String) ?? "2014-12-25 08:00" }
+                return (defaults.objectForKey("targetDate") as? String) ?? TARGET_DATE }
         set {   NSLog("Saved Settings Class - set - targetDate")
                 defaults.setObject(newValue, forKey: "targetDate")
                 defaults.synchronize() }
@@ -23,7 +39,7 @@ public class SavedSettings
     
     var sharingMessage: NSString {
         get {   NSLog("Saved Settings Class - get - sharingMessage")
-                return (defaults.objectForKey("sharingMessage") as? String) ?? "to Glastonbury Festival 2015" }
+                return (defaults.objectForKey("sharingMessage") as? String) ?? SHARING_MESSAGE }
         set {   NSLog("Saved Settings Class - set - sharingMessage")
                 defaults.setObject(newValue, forKey: "sharingMessage")
                 defaults.synchronize() }
@@ -32,23 +48,18 @@ public class SavedSettings
     
     var eventName: NSString {
         get {   NSLog("Saved Settings Class - get - eventName")
-            return (defaults.objectForKey("eventName") as? String) ?? "Glastonbury" }
+                return (defaults.objectForKey("eventName") as? String) ?? EVENT_NAME }
         set {   NSLog("Saved Settings Class - set - eventName")
-            defaults.setObject(newValue, forKey: "eventName")
-            defaults.synchronize() }
+                defaults.setObject(newValue, forKey: "eventName")
+                defaults.synchronize() }
     }
     
     
     var showIconBadge: Bool {
         get {   NSLog("Saved Settings Class - get - showIconBadge")
-                return (defaults.objectForKey("showIconBadge") as? Bool) ?? true }
+                return (defaults.objectForKey("showIconBadge") as? Bool) ?? SHOW_ICON_BADGE }
         set {   NSLog("Saved Settings Class - set - showIconBadge")
                 defaults.setObject(newValue, forKey: "showIconBadge")
                 defaults.synchronize() }
     }
-    
-
-
-    
-    
 }
