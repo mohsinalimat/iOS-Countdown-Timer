@@ -36,7 +36,7 @@ class ViewController: UIViewController  {
     
     var photoCount:Int = 0
     
-    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+    //var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     
     
 //Code *******************************************************************
@@ -72,16 +72,6 @@ class ViewController: UIViewController  {
     func setTheTargetDate() {
         
         // Get the target date from NSUserDefaults
-        /*
-        var targetDateString = defaults.objectForKey("targetDate") as? String!
-        
-        if (targetDateString! == nil) {
-            targetDateString = "2014-12-25 12:34"
-        }
-        
-        thisCountdown.Config(targetDateString!)
-        */
-        
         thisCountdown.Config(savedSettings.targetDate)
     }
     
@@ -160,13 +150,10 @@ class ViewController: UIViewController  {
     @IBAction func ShowActionSheetButton(sender: AnyObject) {
         var rt = thisCountdown.RemainingDaysHoursMinutes()
         
-        var sharingMessageEnd = defaults.objectForKey("sharingMessage") as? String!
-        if (sharingMessageEnd! == nil) {
-            sharingMessageEnd = "to Glastonbury Festival 2015"
-        }
+        var sharingMessageEnd = savedSettings.sharingMessage
         
         //Construct sharing string
-        let sharingText:String = "\(rt.days) \(rt.daysStr), \(rt.hours) \(rt.hoursStr), \(rt.minutes) \(rt.minutesStr) \(sharingMessageEnd!)"
+        let sharingText:String = "\(rt.days) \(rt.daysStr), \(rt.hours) \(rt.hoursStr), \(rt.minutes) \(rt.minutesStr) \(sharingMessageEnd)"
         
         //Load sharing view controller with above string
         let activityViewController = UIActivityViewController(activityItems: [sharingText], applicationActivities: nil)

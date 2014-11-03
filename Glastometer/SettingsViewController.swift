@@ -17,9 +17,9 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
 {
     
     var editTargetDate:Bool = false;
-    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+    //var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     var showIconBadge: Bool!
-    var sharingMessage: String!
+    //var sharingMessage: String!
     
     
     //Constants
@@ -44,30 +44,17 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         shareMessageTextField.delegate = self
         
         // Get the icon badge switch state from NSUserDefaults
-        showIconBadge = defaults.objectForKey("showIconBadge") as? Bool
-        if (showIconBadge == nil) {
-            showIconBadge = true
-        }
+        showIconBadge = SavedSettings().showIconBadge
         iconBadgeSwitch.setOn(showIconBadge!, animated: true)
         
-        
-        // Get the sharing message from NSUserDefaults
-        sharingMessage = defaults.objectForKey("sharingMessage") as? String
-        if (sharingMessage == nil) {
-            sharingMessage = "to Glastonbury Festival 2015"
-        }
+        //sharingMessage = SavedSettings().sharingMessage
         
         // Get the target date from NSUserDefaults
-        var targetDateString = defaults.objectForKey("targetDate") as? String!
-        
-        if (targetDateString! == nil) {
-            targetDateString = "2014-12-25 12:34"
-        }
-        
-        var targetDate = thisCountdown.DateFromString(targetDateString!)
+        var targetDateString = SavedSettings().targetDate
+        var targetDate = thisCountdown.DateFromString(targetDateString)
         
         //Set the target date in the countdown object
-        thisCountdown.Config(targetDateString!)
+        thisCountdown.Config(targetDateString)
         
         //Set the date in the datePicker
         datePicker.setDate(targetDate, animated: true)
@@ -82,18 +69,8 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         datePicker.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
         //Set the eventName and shareMessage text fields
-        var eventName = defaults.objectForKey("eventName") as? String!
-        if (eventName! == nil) {
-            eventName = "blank event name"
-        }
-        eventNameTextField.text = eventName!
-        
-        var shareMessage = defaults.objectForKey("shareMessage") as? String!
-        if (shareMessage! == nil) {
-            shareMessage = "blank share message"
-        }
-        shareMessageTextField.text = shareMessage!
-
+        eventNameTextField.text = SavedSettings().eventName
+        shareMessageTextField.text = SavedSettings().sharingMessage
     }
     
     
@@ -116,8 +93,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         var dateStringToSave = dateFmt.stringFromDate(datePicker.date)
         NSLog(dateStringToSave)
         
-        defaults.setObject(dateStringToSave, forKey: "targetDate")
-        defaults.synchronize()
+        SavedSettings().targetDate = dateStringToSave
         
         //Set the target date in the countdown object
         thisCountdown.Config(dateStringToSave)
@@ -155,9 +131,13 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     {
         showIconBadge = !showIconBadge
         
+        SavedSettings().showIconBadge = showIconBadge
+        
+        /*
         defaults.setObject(showIconBadge, forKey: "showIconBadge")
         defaults.synchronize()
-     
+        */
+        
         showHideIconBadge()
     }
     
@@ -173,25 +153,16 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         
         textField.resignFirstResponder()
         
-        var thisTextField: String = ""
-        
         if textField == eventNameTextField
         {
             NSLog("event Name text field")
-            thisTextField = "eventName"
+            SavedSettings().eventName = textField.text
         }
         
         if textField == shareMessageTextField
         {
             NSLog("share message text field")
-            thisTextField = "shareMessage"
-        }
-        
-        if (thisTextField != "")
-        {
-            //Must test if thisTextField string is nil
-            defaults.setObject(textField.text, forKey: thisTextField)
-            defaults.synchronize()
+            SavedSettings().sharingMessage = textField.text
         }
     }
     

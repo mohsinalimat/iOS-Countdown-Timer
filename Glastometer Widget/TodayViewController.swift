@@ -13,7 +13,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var mainLabel: UILabel!
     
     let thisCountdown = CountdownCalculator()
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.preferredContentSize = CGSizeMake(0, 32);

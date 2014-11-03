@@ -24,15 +24,12 @@ public class IconBadge
         var application: UIApplication = UIApplication.sharedApplication()
         
         // Get the icon badge switch state from NSUserDefaults
-        var showIconBadge = defaults.objectForKey("showIconBadge") as? Bool
-        if (showIconBadge!)
+        var showIconBadge = SavedSettings().showIconBadge //defaults.objectForKey("showIconBadge") as? Bool
+        if (showIconBadge)
         {
             // Get the target date from NSUserDefaults
-            var targetDate = defaults.objectForKey("targetDate") as? String!
-            if (targetDate == nil) {
-                targetDate = "2014-12-25 12:34"
-            }
-            thisCountdown.Config(targetDate!)
+            var targetDate = SavedSettings().targetDate //defaults.objectForKey("targetDate") as? String!
+            thisCountdown.Config(targetDate)
             
             application.cancelAllLocalNotifications()
             application.scheduledLocalNotifications = localNotificationsStartingTomorrow()
