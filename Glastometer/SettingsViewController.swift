@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
-class SettingsViewController : UITableViewController, UITextFieldDelegate, UIActionSheetDelegate
+class SettingsViewController : UITableViewController, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate
 {
     var editTargetDate:Bool = false;
     var showIconBadge: Bool!
@@ -19,6 +20,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     let ROW_FOR_DATE = 0
     let ROW_FOR_DATE_PICKER = 1
     let SECTION_FOR_RESET = 3
+    let SECTION_FOR_EMAIL = 4
     
     let thisCountdown = CountdownCalculator()
     let iconBadge = IconBadge()
@@ -118,9 +120,15 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
        
         if (indexPath.section == SECTION_FOR_RESET)
         {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
             resetAllSettings()
         }
+        
+        if (indexPath.section == SECTION_FOR_EMAIL)
+        {
+            sendEmailButtonTapped()
+        }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     
@@ -163,9 +171,6 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     {
         iconBadge.setBadge()
     }
-   
-    
-    
     
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -194,6 +199,47 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         return true
     }
 
+// Send email - the following function are required as well as 
+// import MessageUI &
+// MFMailComposeViewControllerDelegate protocol in class decleration.
+    func sendEmailButtonTapped()
+    {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController
+    {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["support@Glastometer.com"])
+        mailComposerVC.setSubject("Support")
+        //mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert()
+    {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email",
+                                            message: "Your device could not send e-mail.  Please check e-mail configuration and try again.",
+                                            delegate: self,
+                                            cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+//End of send email stuff
+
+    
     @IBAction func doneButton(sender: AnyObject) {
         if((self.presentingViewController) != nil){
             self.dismissViewControllerAnimated(true, completion: nil)
