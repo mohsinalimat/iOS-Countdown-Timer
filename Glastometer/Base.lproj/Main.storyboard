@@ -384,7 +384,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Contact" id="2Ay-7y-yA0">
+                            <tableViewSection headerTitle="Feedback" id="2Ay-7y-yA0">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="e91-T7-PaB" style="IBUITableViewCellStyleDefault" id="4aS-Di-H0u">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

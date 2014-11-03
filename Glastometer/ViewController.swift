@@ -26,12 +26,6 @@ class ViewController: UIViewController  {
 //Variables *******************************************************************
     var currentDisplay = 1
     
-    //Load the images into an array (could this array be a let?)
-    //var backgroundImages: [UIImage] = [
-    //    UIImage(named: "Bg1.png")!, UIImage(named: "Bg2.png")!, UIImage(named: "Bg3.png")!, UIImage(named: "Bg4.png")!,
-    //    UIImage(named: "Bg5.png")!, UIImage(named: "Bg6.png")!, UIImage(named: "Bg8.png")!, UIImage(named: "Bg9.png")!,
-    //    UIImage(named: "Bg11.png")!]
-    
     var backgroundImageNames: [String] = ["Bg1", "Bg2", "Bg3", "Bg4", "Bg5", "Bg6", "Bg8", "Bg9", "Bg11" ]
     
     var photoCount:Int = 0
@@ -45,11 +39,6 @@ class ViewController: UIViewController  {
         
         //backgroundImageView.image = backgroundImages[0];
 
-        
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        //self.navigationController?.navigationBar.shadowImage = UIImage()
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        
         //Start Change image timer
         var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
         
@@ -85,7 +74,7 @@ class ViewController: UIViewController  {
             photoCount = 0
         }
         
-        //This uses an array of images (defined at the top, now commented out)... all images get loaded into memory and apps foot print increases to ~180MB
+        //This uses an array of images, all images get loaded into memory and apps foot print increases to ~180MB
         //let toImage = backgroundImages[photoCount]
 
         //uses UIImage(named: Stirng) function, this has the same effect as using the array of images above.
@@ -157,7 +146,7 @@ class ViewController: UIViewController  {
         
         //Load sharing view controller with above string
         let activityViewController = UIActivityViewController(activityItems: [sharingText], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = sender as UIView //required by iPad - so the popover hase somewhere to anchor to.
+        activityViewController.popoverPresentationController?.sourceView = sender as UIView //required by iPad - so the popover has somewhere to anchor to.
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
    
