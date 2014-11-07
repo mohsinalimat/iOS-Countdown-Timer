@@ -14,35 +14,27 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     let thisCountdown = CountdownCalculator()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         super.preferredContentSize = CGSizeMake(0, 32);
         
-        
-        var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
-        
-        var targetDate = defaults.objectForKey("targetDate") as? String!
-        if (targetDate == nil) {
-            targetDate = "2014-12-25 12:34"
-        }
-        
-        thisCountdown.Config(targetDate!)
+        var targetDate = SavedSettings().targetDate
+        thisCountdown.Config(targetDate)
         var rt = thisCountdown.RemainingDays()
         
-        var sharingMessageEnd = defaults.objectForKey("sharingMessage") as? String!
-        if (sharingMessageEnd! == nil) {
-            sharingMessageEnd = "to Glastonbury Festival 2015"
-        }
-        
-        mainLabel.text = "\(rt.days) \(rt.daysStr) " + sharingMessageEnd!
+        var sharingMessageEnd = SavedSettings().sharingMessage
+        mainLabel.text = "\(rt.days) \(rt.daysStr) " + sharingMessageEnd
     }
     
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!)
+    {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
