@@ -15,6 +15,7 @@
 		D816302619ED3D9900282D04 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816302519ED3D9800282D04 /* SettingsViewController.swift */; };
 		D81C42E21A06F9190008EB84 /* SavedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81C42E11A06F9190008EB84 /* SavedSettings.swift */; };
 		D81C42E31A0CF1140008EB84 /* SavedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81C42E11A06F9190008EB84 /* SavedSettings.swift */; };
+		D82241561A26066000CBA6F7 /* ChangeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82241551A26066000CBA6F7 /* ChangeLocationViewController.swift */; };
 		D85AF25919E2B4EC00F140CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AF25819E2B4EC00F140CC /* AppDelegate.swift */; };
 		D85AF25B19E2B4EC00F140CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AF25A19E2B4EC00F140CC /* ViewController.swift */; };
 		D85AF25E19E2B4EC00F140CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85AF25C19E2B4EC00F140CC /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 		D816302419EB2C8F00282D04 /* Glastometer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Glastometer.entitlements; sourceTree = "<group>"; };
 		D816302519ED3D9800282D04 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D81C42E11A06F9190008EB84 /* SavedSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedSettings.swift; path = ../SavedSettings.swift; sourceTree = "<group>"; };
+		D82241551A26066000CBA6F7 /* ChangeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLocationViewController.swift; sourceTree = "<group>"; };
 		D85AF25319E2B4EC00F140CC /* Glastometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glastometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85AF25719E2B4EC00F140CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D85AF25819E2B4EC00F140CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				D85AF25A19E2B4EC00F140CC /* ViewController.swift */,
 				D816302519ED3D9800282D04 /* SettingsViewController.swift */,
 				D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */,
+				D82241551A26066000CBA6F7 /* ChangeLocationViewController.swift */,
 				D8D52D0119FEF51800D9A10A /* IconBadge.swift */,
 				D81C42E11A06F9190008EB84 /* SavedSettings.swift */,
 				D85AF25C19E2B4EC00F140CC /* Main.storyboard */,
@@ -408,6 +411,7 @@
 				D894C18B19E49EC800119BA9 /* CountdownCalculator.swift in Sources */,
 				D85AF25B19E2B4EC00F140CC /* ViewController.swift in Sources */,
 				D85AF25919E2B4EC00F140CC /* AppDelegate.swift in Sources */,
+				D82241561A26066000CBA6F7 /* ChangeLocationViewController.swift in Sources */,
 				D816302619ED3D9900282D04 /* SettingsViewController.swift in Sources */,
 				D8D52D0219FEF51800D9A10A /* IconBadge.swift in Sources */,
 			);
