@@ -13,9 +13,8 @@ import MapKit
 class ChangeLocationViewController : UIViewController, MKMapViewDelegate
 {
     @IBOutlet weak var mapView: MKMapView!
-    
-    
     let longPressRec = UILongPressGestureRecognizer()
+    
     
     override func viewDidLoad() {
         longPressRec.addTarget(self, action: "longPressedView")
@@ -41,12 +40,10 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
-        
     }
     
     
     func longPressedView(){
-        
         //Remove all other pins
         mapView.removeAnnotations(mapView.annotations)
         
