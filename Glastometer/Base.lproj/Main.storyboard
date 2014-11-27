@@ -447,14 +447,37 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QqY-1n-Ibx">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </mapView>
+                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m3L-Fk-6Xt">
+                                <rect key="frame" x="175" y="562" width="250" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="P9M-Mj-nOt"/>
+                                    <constraint firstAttribute="height" constant="28" id="t1e-6e-ucM"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satellite"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeMapView:" destination="hNN-45-Xst" eventType="valueChanged" id="OWS-tW-k54"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QqY-1n-Ibx" firstAttribute="top" secondItem="9Vq-wq-Xv4" secondAttribute="bottom" id="18P-Lk-5HZ"/>
+                            <constraint firstItem="Vz1-61-QnH" firstAttribute="top" secondItem="m3L-Fk-6Xt" secondAttribute="bottom" constant="10" id="5rS-au-ni5"/>
+                            <constraint firstAttribute="centerX" secondItem="m3L-Fk-6Xt" secondAttribute="centerX" id="NWV-62-jcB"/>
                             <constraint firstItem="QqY-1n-Ibx" firstAttribute="leading" secondItem="h0A-VO-oLW" secondAttribute="leadingMargin" constant="-16" id="Nmg-Gp-PmU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QqY-1n-Ibx" secondAttribute="trailing" constant="-16" id="WsD-Nv-tVR"/>
                             <constraint firstItem="Vz1-61-QnH" firstAttribute="top" secondItem="QqY-1n-Ibx" secondAttribute="bottom" id="eDo-wa-ZX5"/>
+                            <constraint firstItem="m3L-Fk-6Xt" firstAttribute="top" secondItem="h0A-VO-oLW" secondAttribute="top" id="mD3-Jo-kyK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mD3-Jo-kyK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="QqY-1n-Ibx" id="2hd-E6-RpJ"/>

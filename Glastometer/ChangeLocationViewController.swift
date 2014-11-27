@@ -13,7 +13,8 @@ import MapKit
 class ChangeLocationViewController : UIViewController, MKMapViewDelegate
 {
     @IBOutlet weak var mapView: MKMapView!
-
+    
+    
     let longPressRec = UILongPressGestureRecognizer()
     
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
+        
     }
     
     
@@ -44,6 +46,22 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         //Put the code in here to drop a new pin when long pressed complete.
     }
     
+    
+    //Change the map view with the segmented control
+    @IBAction func changeMapView(sender: AnyObject) {
+        
+        if (sender.selectedSegmentIndex == 0){
+            mapView.mapType = MKMapType.Standard
+        }
+        else if (sender.selectedSegmentIndex == 1){
+            mapView.mapType = MKMapType.Hybrid
+        }
+        else if (sender.selectedSegmentIndex == 2){
+            mapView.mapType = .Satellite
+        }
+    }
+    
+
 /*
     - (void)viewDidLoad
     {
