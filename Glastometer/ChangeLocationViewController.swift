@@ -26,7 +26,10 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     
     
     func addPinToMap(){
-        let location = CLLocationCoordinate2D(latitude: 51.155543, longitude: -2.586368)
+    
+        var location = CLLocationCoordinate2D(latitude: SavedSettings().locationLatitude.doubleValue,
+                                              longitude: SavedSettings().locationLongitude.doubleValue)
+        
         let annotation = MyAnnotation(coordinate: location, title: SavedSettings().eventName, subtitle: "")
         mapView.addAnnotation(annotation)
 
@@ -35,7 +38,7 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     
     
     func setCentreOfMapToLocation(location: CLLocationCoordinate2D){
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
         
@@ -43,7 +46,18 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     
     
     func longPressedView(){
-        //Put the code in here to drop a new pin when long pressed complete.
+        
+        //Remove all other pins
+        mapView.removeAnnotations(mapView.annotations)
+        
+        var touchPoint:CGPoint = longPressRec.locationInView(mapView)
+        var touchMapCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
+        let annotation = MyAnnotation(coordinate: touchMapCoordinate, title: SavedSettings().eventName, subtitle: "")
+        mapView.addAnnotation(annotation)
+        
+        //Save new location to SavedSettings.
+        SavedSettings().locationLatitude = touchMapCoordinate.latitude.description
+        SavedSettings().locationLongitude = touchMapCoordinate.longitude.description
     }
     
     

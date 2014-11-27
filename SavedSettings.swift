@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 public class SavedSettings
 {
@@ -14,6 +15,8 @@ public class SavedSettings
     let SHARING_MESSAGE:String  = "to Glastonbury Festival"
     let EVENT_NAME:String       = "Glastonbury"
     let SHOW_ICON_BADGE:Bool    = true
+    let LOCATION_LAT:String     = "51.155543" //:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 51.155543, longitude: -2.586368)
+    let LOCATION_LONG:String    = "-2.586368"
     
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
     
@@ -24,9 +27,10 @@ public class SavedSettings
         defaults.setObject(SHARING_MESSAGE, forKey: "sharingMessage")
         defaults.setObject(EVENT_NAME, forKey: "eventName")
         defaults.setObject(SHOW_ICON_BADGE, forKey: "showIconBadge")
+        defaults.setObject(LOCATION_LAT, forKey: "locationLatitude")
+        defaults.setObject(LOCATION_LAT, forKey: "locationLongitude")
         defaults.synchronize()
     }
-
     
     var targetDate: String {
         get {   NSLog("Saved Settings Class - get - targetDate")
@@ -62,4 +66,22 @@ public class SavedSettings
                 defaults.setObject(newValue, forKey: "showIconBadge")
                 defaults.synchronize() }
     }
+    
+    
+    var locationLatitude: NSString {
+        get {   NSLog("Saved Settings Class - get - locationLatitude")
+            return (defaults.objectForKey("locationLatitude") as? String) ?? LOCATION_LAT }
+        set {   NSLog("Saved Settings Class - set - locationLatitude")
+            defaults.setObject(newValue, forKey: "locationLatitude")
+            defaults.synchronize() }
+    }
+    
+    var locationLongitude: NSString {
+        get {   NSLog("Saved Settings Class - get - locationLongitude")
+            return (defaults.objectForKey("locationLongitude") as? String) ?? LOCATION_LONG }
+        set {   NSLog("Saved Settings Class - set - locationLongitude")
+            defaults.setObject(newValue, forKey: "locationLongitude")
+            defaults.synchronize() }
+    }
+
 }
