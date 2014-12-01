@@ -28,7 +28,7 @@ public class SavedSettings
         defaults.setObject(EVENT_NAME, forKey: "eventName")
         defaults.setObject(SHOW_ICON_BADGE, forKey: "showIconBadge")
         defaults.setObject(LOCATION_LAT, forKey: "locationLatitude")
-        defaults.setObject(LOCATION_LAT, forKey: "locationLongitude")
+        defaults.setObject(LOCATION_LONG, forKey: "locationLongitude")
         defaults.synchronize()
     }
     

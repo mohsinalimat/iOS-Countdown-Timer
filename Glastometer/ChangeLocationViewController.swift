@@ -19,7 +19,7 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     override func viewDidLoad() {
         longPressRec.addTarget(self, action: "longPressedView")
         mapView.addGestureRecognizer(longPressRec)
-        
+        mapView.showsUserLocation = true
         addPinToMap()
     }
     
@@ -55,6 +55,7 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         //Save new location to SavedSettings.
         SavedSettings().locationLatitude = touchMapCoordinate.latitude.description
         SavedSettings().locationLongitude = touchMapCoordinate.longitude.description
+        NSLog("\(touchMapCoordinate.latitude.description), \(touchMapCoordinate.longitude.description)")
     }
     
     

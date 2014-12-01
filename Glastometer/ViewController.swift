@@ -17,11 +17,14 @@ class ViewController: UIViewController  {
 //Constants *******************************************************************
     let thisCountdown = CountdownCalculator()
     let savedSettings = SavedSettings()
+    let distanceCalculator = DistanceCalculator()
+    
     let CHANGE_BACKGROUND_TIME:Int = 5  //Seconds - Time between image changes
     let IMAGE_FADE_TIME:Int = 2         //Seconds - Animation time (to change images)
     
-    let numberOfDisplays:Int = 3
+    let numberOfDisplays:Int = 4
     
+    let METERS_PER_MILE:Double = 1609.344
     
 //Variables *******************************************************************
     var currentDisplay = 1
@@ -133,6 +136,25 @@ class ViewController: UIViewController  {
             
             remainingUnitsLabel.text = unitsString
         }
+        
+        if (currentDisplay == 4)
+        {
+            if (CheckIfLocationServiceAllowedForApp())
+            {
+                distanceCalculator.startGettingCurrentLocation()
+                remainingDaysLabel.text = NSString(format: "%.1f", (distanceCalculator.getRemainingDistance() / METERS_PER_MILE))
+                remainingUnitsLabel.text = "Miles"
+            }
+            else
+            {
+                currentDisplay = 1
+                updateDisplay()
+            }
+        }
+        else
+        {
+            distanceCalculator.stopGettingCurrentLocation()
+        }
     }
     
     
@@ -156,5 +178,33 @@ class ViewController: UIViewController  {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func CheckIfLocationServiceAllowedForApp() -> Bool
+    {
+        return true
+    }
+    
+    /*
+    - (int)CheckIfLocationServiceAllowedForApp
+    {
+    //if (IPAD) return 1;
+    
+    if ( [CLLocationManager locationServicesEnabled] )
+    {
+    if ( [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied  )
+    {
+    return 2;
+    }
+    else
+    {
+    return 1;
+    }
+    }
+    else
+    {
+    return 1;
+    }
+    }
+    */
 }
 

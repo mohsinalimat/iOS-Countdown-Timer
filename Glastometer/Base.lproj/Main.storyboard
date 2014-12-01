@@ -38,7 +38,7 @@
                                             <action selector="ChangeDisplay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddi-xW-O2D"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="SQF-Nf-del">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="SQF-Nf-del">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="152" id="PK8-kN-iiK"/>
