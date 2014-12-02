@@ -32,9 +32,10 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var shareMessageTextField: UITextField!
     
+    @IBOutlet weak var locationDetails: UILabel!
     
     override func viewDidLoad() {
-        
+        NSLog("settings tvc viewDidLoad")
         eventNameTextField.delegate = self //this is required so the keyboard can be dismissed
         shareMessageTextField.delegate = self
         
@@ -64,10 +65,14 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         //Set the eventName and shareMessage text fields
         eventNameTextField.text = SavedSettings().eventName
         shareMessageTextField.text = SavedSettings().sharingMessage
+        
     }
     
     
     override func viewWillAppear(animated: Bool) {
+        NSLog("settings tvc viewWillAppear")
+        //Set the location details
+        locationDetails.text = "\(SavedSettings().locationLatitude), \(SavedSettings().locationLongitude)"
         self.navigationController?.navigationBar.translucent = false;
     }
     
@@ -147,7 +152,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
            
             SavedSettings().ResetAllSettings()
             self.viewDidLoad()
-            
+            self.viewWillAppear(true)
         }
         alertController.addAction(OKAction)
         

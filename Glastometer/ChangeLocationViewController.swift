@@ -53,8 +53,8 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         mapView.addAnnotation(annotation)
         
         //Save new location to SavedSettings.
-        SavedSettings().locationLatitude = touchMapCoordinate.latitude.description
-        SavedSettings().locationLongitude = touchMapCoordinate.longitude.description
+        SavedSettings().locationLatitude = NSString(format: "%.6f", touchMapCoordinate.latitude)
+        SavedSettings().locationLongitude = NSString(format: "%.6f", touchMapCoordinate.longitude)
         NSLog("\(touchMapCoordinate.latitude.description), \(touchMapCoordinate.longitude.description)")
     }
     

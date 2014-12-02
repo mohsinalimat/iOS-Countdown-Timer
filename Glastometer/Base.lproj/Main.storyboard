@@ -425,6 +425,7 @@
                         <outlet property="datePicker" destination="X9z-XK-1iX" id="RdM-Mg-dWO"/>
                         <outlet property="eventNameTextField" destination="iZ8-gb-See" id="6cX-8L-VF9"/>
                         <outlet property="iconBadgeSwitch" destination="58q-NN-7ny" id="CEn-n6-RSx"/>
+                        <outlet property="locationDetails" destination="VDW-fZ-F2y" id="NDi-xH-edk"/>
                         <outlet property="shareMessageTextField" destination="cfX-Nt-0NK" id="PQm-GR-fI9"/>
                     </connections>
                 </tableViewController>
