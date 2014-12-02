@@ -34,6 +34,7 @@
 		D85E871E1A26906E008CB434 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E871D1A26906E008CB434 /* MyAnnotation.swift */; };
 		D85E87271A2BD58E008CB434 /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E87251A2BCB87008CB434 /* DistanceCalculator.swift */; };
 		D85E87291A2BD818008CB434 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85E87281A2BD818008CB434 /* MapKit.framework */; };
+		D85E872B1A2DF154008CB434 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D85E872A1A2DF154008CB434 /* README.md */; };
 		D894C18B19E49EC800119BA9 /* CountdownCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */; };
 		D8D52D0219FEF51800D9A10A /* IconBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D52D0119FEF51800D9A10A /* IconBadge.swift */; };
 		D8D52D041A01B05400D9A10A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8D52D031A01B05400D9A10A /* Settings.bundle */; };
@@ -109,6 +110,7 @@
 		D85E871D1A26906E008CB434 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		D85E87251A2BCB87008CB434 /* DistanceCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistanceCalculator.swift; path = ../DistanceCalculator.swift; sourceTree = "<group>"; };
 		D85E87281A2BD818008CB434 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D85E872A1A2DF154008CB434 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownCalculator.swift; sourceTree = "<group>"; };
 		D8D52D0119FEF51800D9A10A /* IconBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconBadge.swift; sourceTree = "<group>"; };
 		D8D52D031A01B05400D9A10A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		D85AF24A19E2B4EC00F140CC = {
 			isa = PBXGroup;
 			children = (
+				D85E872A1A2DF154008CB434 /* README.md */,
 				D8D52D031A01B05400D9A10A /* Settings.bundle */,
 				D85AF25519E2B4EC00F140CC /* Glastometer */,
 				D85AF26B19E2B4EC00F140CC /* GlastometerTests */,
@@ -412,6 +415,7 @@
 			files = (
 				D81C42E31A0CF1140008EB84 /* SavedSettings.swift in Sources */,
 				D816302319E9CDC800282D04 /* CountdownCalculator.swift in Sources */,
+				D85E872B1A2DF154008CB434 /* README.md in Sources */,
 				D816301719E9C31200282D04 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
