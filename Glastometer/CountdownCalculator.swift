@@ -19,7 +19,6 @@ public class CountdownCalculator
     let SECONDS_PER_HOUR = 3600
     let SECONDS_PER_MINUTE = 60
     let SECONDS_PER_DAY = 86400
-    let METERS_PER_MILE = 1609.344
     
     func Config(targetDate:String)
     {

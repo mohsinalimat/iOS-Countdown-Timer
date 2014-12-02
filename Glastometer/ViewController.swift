@@ -28,13 +28,9 @@ class ViewController: UIViewController  {
     
 //Variables *******************************************************************
     var currentDisplay = 1
-    
     var backgroundImageNames: [String] = ["Bg1", "Bg2", "Bg3", "Bg4", "Bg5", "Bg6", "Bg8", "Bg9", "Bg11" ]
-    
     var photoCount:Int = 0
-    
-    //var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
-    
+    var sharingText:String = ""
     
 //Code *******************************************************************
     override func viewDidLoad(){
@@ -108,12 +104,16 @@ class ViewController: UIViewController  {
     }
     
     
+    //Update Display and Sharing message string.
     func updateDisplay(){
         
         if (currentDisplay == 1)    // Display remaining Days
         {
             remainingDaysLabel.text = String(thisCountdown.RemainingDays().days)
             remainingUnitsLabel.text = String(thisCountdown.RemainingDaysLabel())
+            
+            var rt = thisCountdown.RemainingDaysHoursMinutes()
+            sharingText = "\(rt.days) \(rt.daysStr)"
         }
         
         if (currentDisplay == 2)    // Display weeks and days
@@ -123,6 +123,8 @@ class ViewController: UIViewController  {
             
             remainingDaysLabel.text = String(weeksObj.weeks)
             remainingUnitsLabel.text = labelObj.weeksLbl + "\r" + String(weeksObj.days) + " " + labelObj.daysLbl
+            
+            sharingText = "\(weeksObj.weeks) \(labelObj.weeksLbl), \(weeksObj.days) \(labelObj.daysLbl)"
         }
         
         if (currentDisplay == 3)    // Display Days, Hours and Minutes
@@ -135,6 +137,8 @@ class ViewController: UIViewController  {
             unitsString += String(rt.minutes) + " " + rt.minutesStr
             
             remainingUnitsLabel.text = unitsString
+            
+            sharingText = "\(rt.days) \(rt.daysStr), \(rt.hours) \(rt.hoursStr), \(rt.minutes) \(rt.minutesStr)"
         }
         
         if (currentDisplay == 4)
@@ -142,8 +146,11 @@ class ViewController: UIViewController  {
             if (CheckIfLocationServiceAllowedForApp())
             {
                 distanceCalculator.startGettingCurrentLocation()
-                remainingDaysLabel.text = NSString(format: "%.1f", (distanceCalculator.getRemainingDistance() / METERS_PER_MILE))
+                var distance:String = NSString(format: "%.1f", (distanceCalculator.getRemainingDistance() / METERS_PER_MILE))
+                remainingDaysLabel.text = distance
                 remainingUnitsLabel.text = "Miles"
+                
+                sharingText = "\(distance) Miles"
             }
             else
             {
@@ -151,9 +158,12 @@ class ViewController: UIViewController  {
                 updateDisplay()
             }
         }
-        else
+        else //Turn off location services when not in this view
         {
-            distanceCalculator.stopGettingCurrentLocation()
+            if distanceCalculator.locationServicesRunning
+            {
+                distanceCalculator.stopGettingCurrentLocation()
+            }
         }
     }
     
@@ -163,11 +173,8 @@ class ViewController: UIViewController  {
         
         var sharingMessageEnd = savedSettings.sharingMessage
         
-        //Construct sharing string
-        let sharingText:String = "\(rt.days) \(rt.daysStr), \(rt.hours) \(rt.hoursStr), \(rt.minutes) \(rt.minutesStr) \(sharingMessageEnd)"
-        
         //Load sharing view controller with above string
-        let activityViewController = UIActivityViewController(activityItems: [sharingText], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: ["\(sharingText) \(sharingMessageEnd)"], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = sender as UIView //required by iPad - so the popover has somewhere to anchor to.
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
