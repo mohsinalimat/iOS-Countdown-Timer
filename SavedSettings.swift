@@ -11,11 +11,11 @@ import MapKit
 
 public class SavedSettings
 {
-    let TARGET_DATE:String      = "2014-12-25 08:00"
+    let TARGET_DATE:String      = "2015-06-24 08:00"
     let SHARING_MESSAGE:String  = "to Glastonbury Festival"
     let EVENT_NAME:String       = "Glastonbury"
     let SHOW_ICON_BADGE:Bool    = true
-    let LOCATION_LAT:String     = "51.155543" //:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 51.155543, longitude: -2.586368)
+    let LOCATION_LAT:String     = "51.155543"
     let LOCATION_LONG:String    = "-2.586368"
     
     var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
