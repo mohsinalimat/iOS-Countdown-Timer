@@ -340,7 +340,7 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Change event location" id="DcD-Tg-hQY">
-                                <string key="footerTitle">To display the distance, location services for this app must be enabled. To enable go to Settings &gt; Privacy &gt; Location Services &gt; and switch Glastometer on.</string>
+                                <string key="footerTitle">To display the distance, location services for this app must be enabled. To enable go to Settings &gt; Privacy &gt; Location Services &gt; and select 'While Using the App' for Glastometer.</string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Eh1-PF-Ae5" detailTextLabel="VDW-fZ-F2y" style="IBUITableViewCellStyleValue1" id="cSL-v1-mzz">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

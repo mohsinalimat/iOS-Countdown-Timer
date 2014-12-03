@@ -19,7 +19,7 @@ class ViewController: UIViewController  {
     let savedSettings = SavedSettings()
     let distanceCalculator = DistanceCalculator()
     
-    let CHANGE_BACKGROUND_TIME:Int = 5  //Seconds - Time between image changes
+    let CHANGE_BACKGROUND_TIME:Int = 20  //Seconds - Time between image changes
     let IMAGE_FADE_TIME:Int = 2         //Seconds - Animation time (to change images)
     
     let numberOfDisplays:Int = 4
