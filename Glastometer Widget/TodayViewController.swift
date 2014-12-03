@@ -17,14 +17,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        super.preferredContentSize = CGSizeMake(0, 32);
+        super.preferredContentSize = CGSizeMake(0, 50);
         
         var targetDate = SavedSettings().targetDate
         thisCountdown.Config(targetDate)
         var rt = thisCountdown.RemainingDays()
         
-        var sharingMessageEnd = SavedSettings().sharingMessage
-        mainLabel.text = "\(rt.days) \(rt.daysStr) " + sharingMessageEnd
+        var numbers:String = "\(rt.days)"
+        var description:String = " \(rt.daysStr) " + SavedSettings().sharingMessage
+        
+        //Initialize the mutable strings
+        var numbersMutableString = NSMutableAttributedString(string: numbers, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 36.0)!])
+        numbersMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location: 0, length: countElements(numbers)))
+        
+        var descriptionMutableString = NSMutableAttributedString(string: description, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 12.0)!])
+
+        numbersMutableString.appendAttributedString(descriptionMutableString)
+        mainLabel.attributedText = numbersMutableString
     }
     
     override func didReceiveMemoryWarning()
