@@ -19,6 +19,8 @@ class MyAnnotation : NSObject, MKAnnotation {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
+        
+        //self.animatesDrop = true
         super.init()
     }
 }

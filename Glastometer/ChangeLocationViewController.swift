@@ -15,7 +15,6 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     @IBOutlet weak var mapView: MKMapView!
     let longPressRec = UILongPressGestureRecognizer()
     
-    
     override func viewDidLoad() {
         longPressRec.addTarget(self, action: "longPressedView")
         mapView.addGestureRecognizer(longPressRec)
@@ -51,7 +50,7 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         var touchMapCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
         let annotation = MyAnnotation(coordinate: touchMapCoordinate, title: SavedSettings().eventName, subtitle: "")
         mapView.addAnnotation(annotation)
-        
+       
         //Save new location to SavedSettings.
         SavedSettings().locationLatitude = NSString(format: "%.6f", touchMapCoordinate.latitude)
         SavedSettings().locationLongitude = NSString(format: "%.6f", touchMapCoordinate.longitude)

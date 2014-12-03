@@ -124,7 +124,12 @@ class ViewController: UIViewController  {
             remainingDaysLabel.text = String(weeksObj.weeks)
             remainingUnitsLabel.text = labelObj.weeksLbl + "\r" + String(weeksObj.days) + " " + labelObj.daysLbl
             
-            sharingText = "\(weeksObj.weeks) \(labelObj.weeksLbl), \(weeksObj.days) \(labelObj.daysLbl)"
+            //Mess around a bit with this string so it says "3 Weeks to xxx" rather than "3 Weeks, 0 Days to xxx"
+            sharingText = "\(weeksObj.weeks) \(labelObj.weeksLbl)"
+            if weeksObj.days > 0
+            {
+                sharingText += ", \(weeksObj.days) \(labelObj.daysLbl)"
+            }
         }
         
         if (currentDisplay == 3)    // Display Days, Hours and Minutes
