@@ -78,4 +78,13 @@ public class DistanceCalculator : NSObject, CLLocationManagerDelegate
         }
     }
     
+    public func locationServicesEnabled() -> Bool
+    {
+        if  (CLLocationManager.authorizationStatus() == .Denied)
+        {
+            return false
+        }
+        return true
+    }
+    
 }

@@ -148,7 +148,7 @@ class ViewController: UIViewController  {
         
         if (currentDisplay == 4)
         {
-            if (CheckIfLocationServiceAllowedForApp())
+            if (distanceCalculator.locationServicesEnabled())
             {
                 distanceCalculator.startGettingCurrentLocation()
                 var distance:String = NSString(format: "%.1f", (distanceCalculator.getRemainingDistance() / METERS_PER_MILE))
@@ -190,33 +190,5 @@ class ViewController: UIViewController  {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func CheckIfLocationServiceAllowedForApp() -> Bool
-    {
-        return true
-    }
-    
-    /*
-    - (int)CheckIfLocationServiceAllowedForApp
-    {
-    //if (IPAD) return 1;
-    
-    if ( [CLLocationManager locationServicesEnabled] )
-    {
-    if ( [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied  )
-    {
-    return 2;
-    }
-    else
-    {
-    return 1;
-    }
-    }
-    else
-    {
-    return 1;
-    }
-    }
-    */
 }
 
