@@ -259,9 +259,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D816300E19E9C31200282D04 /* Glastometer Widget */ = {
+		D816300E19E9C31200282D04 /* Glastometer Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D816302119E9C31200282D04 /* Build configuration list for PBXNativeTarget "Glastometer Widget" */;
+			buildConfigurationList = D816302119E9C31200282D04 /* Build configuration list for PBXNativeTarget "Glastometer Extension" */;
 			buildPhases = (
 				D816300B19E9C31200282D04 /* Sources */,
 				D816300C19E9C31200282D04 /* Frameworks */,
@@ -271,7 +271,7 @@
 			);
 			dependencies = (
 			);
-			name = "Glastometer Widget";
+			name = "Glastometer Extension";
 			productName = "Glastometer Widget";
 			productReference = D816300F19E9C31200282D04 /* Glastometer.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -365,7 +365,7 @@
 			targets = (
 				D85AF25219E2B4EC00F140CC /* Glastometer */,
 				D85AF26719E2B4EC00F140CC /* GlastometerTests */,
-				D816300E19E9C31200282D04 /* Glastometer Widget */,
+				D816300E19E9C31200282D04 /* Glastometer Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -449,12 +449,12 @@
 /* Begin PBXTargetDependency section */
 		D816301B19E9C31200282D04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D816300E19E9C31200282D04 /* Glastometer Widget */;
+			target = D816300E19E9C31200282D04 /* Glastometer Extension */;
 			targetProxy = D816301A19E9C31200282D04 /* PBXContainerItemProxy */;
 		};
 		D816301E19E9C31200282D04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D816300E19E9C31200282D04 /* Glastometer Widget */;
+			target = D816300E19E9C31200282D04 /* Glastometer Extension */;
 			targetProxy = D816301D19E9C31200282D04 /* PBXContainerItemProxy */;
 		};
 		D85AF26A19E2B4EC00F140CC /* PBXTargetDependency */ = {
@@ -664,7 +664,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D816302119E9C31200282D04 /* Build configuration list for PBXNativeTarget "Glastometer Widget" */ = {
+		D816302119E9C31200282D04 /* Build configuration list for PBXNativeTarget "Glastometer Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D816301F19E9C31200282D04 /* Debug */,
