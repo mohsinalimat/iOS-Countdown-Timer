@@ -37,7 +37,6 @@
 		D85E872B1A2DF154008CB434 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D85E872A1A2DF154008CB434 /* README.md */; };
 		D894C18B19E49EC800119BA9 /* CountdownCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */; };
 		D8D52D0219FEF51800D9A10A /* IconBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D52D0119FEF51800D9A10A /* IconBadge.swift */; };
-		D8D52D041A01B05400D9A10A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8D52D031A01B05400D9A10A /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +112,6 @@
 		D85E872A1A2DF154008CB434 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D894C18A19E49EC800119BA9 /* CountdownCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownCalculator.swift; sourceTree = "<group>"; };
 		D8D52D0119FEF51800D9A10A /* IconBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconBadge.swift; sourceTree = "<group>"; };
-		D8D52D031A01B05400D9A10A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				D85E872A1A2DF154008CB434 /* README.md */,
-				D8D52D031A01B05400D9A10A /* Settings.bundle */,
 				D85AF25519E2B4EC00F140CC /* Glastometer */,
 				D85AF26B19E2B4EC00F140CC /* GlastometerTests */,
 				D816301319E9C31200282D04 /* Glastometer Widget */,
@@ -385,7 +382,6 @@
 			files = (
 				D85AF28319E2B5DC00F140CC /* Bg3.png in Resources */,
 				D85AF25E19E2B4EC00F140CC /* Main.storyboard in Resources */,
-				D8D52D041A01B05400D9A10A /* Settings.bundle in Resources */,
 				D85AF26319E2B4EC00F140CC /* LaunchScreen.xib in Resources */,
 				D85AF28719E2B5DC00F140CC /* Bg11.png in Resources */,
 				D85AF26019E2B4EC00F140CC /* Images.xcassets in Resources */,
