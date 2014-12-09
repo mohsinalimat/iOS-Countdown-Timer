@@ -35,7 +35,8 @@ public class IconBadge
             application.scheduledLocalNotifications = localNotificationsStartingTomorrow()
             
             // Set the icon badge
-            application.applicationIconBadgeNumber = thisCountdown.RemainingDays().days
+            //application.applicationIconBadgeNumber = thisCountdown.RemainingDays().days
+            application.applicationIconBadgeNumber = thisCountdown.RemainingDaysForBadge() + 1
         }
         else
         {
@@ -50,7 +51,8 @@ public class IconBadge
     {
         var localNotifications: [UILocalNotification] = []
     
-        var daysRemaining: Int = thisCountdown.RemainingDays().days
+        //var daysRemaining: Int = thisCountdown.RemainingDays().days
+        var daysRemaining: Int = thisCountdown.RemainingDaysForBadge() + 1
         let date: NSDate = NSDate()
         
         for var i = 1; i < MAXIMUM_NOTIFICATIONS; i++
