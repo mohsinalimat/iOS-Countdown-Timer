@@ -43,7 +43,7 @@ public class CountdownCalculator
     {
         var targetDate = DateFromString(targetDateTime)
         let days = NSCalendar.currentCalendar().components(.CalendarUnitDay, fromDate: NSDate(), toDate: targetDate, options: nil).day
-        return days
+        return days + 1
     }
     
     

@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         thisCountdown.Config(targetDate)
         var rt = thisCountdown.RemainingDays()
         
-        var numbers:String = "\(rt.days)"
+        var numbers:String = thisCountdown.RemainingDaysForBadge().description //"\(rt.days)"
         var description:String = " \(rt.daysStr) " + SavedSettings().sharingMessage
         
         //Initialize the mutable strings

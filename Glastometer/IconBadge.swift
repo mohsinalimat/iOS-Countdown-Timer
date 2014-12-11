@@ -36,7 +36,7 @@ public class IconBadge
             
             // Set the icon badge
             //application.applicationIconBadgeNumber = thisCountdown.RemainingDays().days
-            application.applicationIconBadgeNumber = thisCountdown.RemainingDaysForBadge() + 1
+            application.applicationIconBadgeNumber = thisCountdown.RemainingDaysForBadge()
         }
         else
         {
@@ -52,7 +52,7 @@ public class IconBadge
         var localNotifications: [UILocalNotification] = []
     
         //var daysRemaining: Int = thisCountdown.RemainingDays().days
-        var daysRemaining: Int = thisCountdown.RemainingDaysForBadge() + 1
+        var daysRemaining: Int = thisCountdown.RemainingDaysForBadge()
         let date: NSDate = NSDate()
         
         for var i = 1; i < MAXIMUM_NOTIFICATIONS; i++
