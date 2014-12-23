@@ -109,11 +109,12 @@ class ViewController: UIViewController  {
         
         if (currentDisplay == 1)    // Display remaining Days
         {
-            remainingDaysLabel.text = thisCountdown.RemainingDaysForBadge().description //String(thisCountdown.RemainingDays().days)
-            remainingUnitsLabel.text = String(thisCountdown.RemainingDaysLabel())
+            var rt = thisCountdown.RemainingSleeps()
             
-            var rt = thisCountdown.RemainingDaysHoursMinutes()
-            sharingText = "\(thisCountdown.RemainingDaysForBadge().description) \(rt.daysStr)"
+            remainingDaysLabel.text = String(rt.sleeps)
+            remainingUnitsLabel.text = rt.sleepsStr
+            
+            sharingText = "\(rt.sleeps) \(rt.sleepsStr)"
         }
         
         if (currentDisplay == 2)    // Display weeks and days

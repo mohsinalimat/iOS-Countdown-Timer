@@ -46,6 +46,19 @@ public class CountdownCalculator
         return days + 1
     }
     
+    func RemainingSleeps() -> (sleeps: Int, sleepsStr: String)
+    {
+        var targetDate = DateFromString(targetDateTime)
+        var days = NSCalendar.currentCalendar().components(.CalendarUnitDay, fromDate: NSDate(), toDate: targetDate, options: nil).day
+        days++
+        var sleepsStr = "Sleep"                     //Set up the Sleeps(s) string for display
+        if (days != 1) {
+            sleepsStr += "s"
+        }
+        
+        return (days, sleepsStr)
+    }
+    
     
     func RemainingSeconds() -> Double
     {
