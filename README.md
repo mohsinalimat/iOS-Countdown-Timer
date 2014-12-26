@@ -16,6 +16,3 @@ Features:
 3. Show the remaining days in the icons badge (optional, can be swutched off)
 4. Show the remaining days in the today extension
 5. Share the remaing weeks/days/hours/minutes or distance via email/sms/facebook/twitter/etc
-
-testing commit
-
