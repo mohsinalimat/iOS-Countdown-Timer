@@ -21,10 +21,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         var targetDate = SavedSettings().targetDate
         thisCountdown.Config(targetDate)
-        var rt = thisCountdown.RemainingDays()
+        var rt = thisCountdown.RemainingSleeps()
         
-        var numbers:String = thisCountdown.RemainingDaysForBadge().description //"\(rt.days)"
-        var description:String = " \(rt.daysStr) " + SavedSettings().sharingMessage
+        var numbers:String = rt.sleeps.description
+        var description:String = " \(rt.sleepsStr) " + SavedSettings().sharingMessage
         
         //Initialize the mutable strings
         var numbersMutableString = NSMutableAttributedString(string: numbers, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 36.0)!])
