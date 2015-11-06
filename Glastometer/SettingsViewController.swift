@@ -105,7 +105,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         if (indexPath.section == SECTION_FOR_DATE && indexPath.row == ROW_FOR_DATE_PICKER)
         {
             if (editTargetDate) {
-                return self.tableView.rowHeight
+                return 200 //self.tableView.rowHeight
             }
             else{
                 return 0.0

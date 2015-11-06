@@ -269,13 +269,13 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="7ld-Nd-LCt">
-                                        <rect key="frame" x="0.0" y="253.5" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="254" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7ld-Nd-LCt" id="MRr-TU-QuA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X9z-XK-1iX">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X9z-XK-1iX">
                                                     <rect key="frame" x="8" y="10" width="584" height="180"/>
                                                     <animations/>
                                                     <constraints>
@@ -293,10 +293,10 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="X9z-XK-1iX" firstAttribute="leading" secondItem="MRr-TU-QuA" secondAttribute="leadingMargin" id="94e-gg-rCw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="X9z-XK-1iX" secondAttribute="trailing" id="RdA-6p-Cfv"/>
-                                                <constraint firstItem="X9z-XK-1iX" firstAttribute="top" secondItem="MRr-TU-QuA" secondAttribute="topMargin" id="s2i-al-sRH"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="X9z-XK-1iX" secondAttribute="bottom" id="tbq-7D-SC3"/>
+                                                <constraint firstItem="X9z-XK-1iX" firstAttribute="top" secondItem="MRr-TU-QuA" secondAttribute="topMargin" constant="2" id="JDp-mr-VIE"/>
+                                                <constraint firstItem="X9z-XK-1iX" firstAttribute="leading" secondItem="MRr-TU-QuA" secondAttribute="leadingMargin" id="RNc-Vp-jyD"/>
+                                                <constraint firstItem="X9z-XK-1iX" firstAttribute="centerY" secondItem="MRr-TU-QuA" secondAttribute="centerY" id="kAT-se-GrK"/>
+                                                <constraint firstItem="X9z-XK-1iX" firstAttribute="trailing" secondItem="MRr-TU-QuA" secondAttribute="trailingMargin" id="kQe-qp-sxT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
