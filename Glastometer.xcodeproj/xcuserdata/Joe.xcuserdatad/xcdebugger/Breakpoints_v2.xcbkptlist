@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Glastometer/ViewController.swift"
-            timestampString = "435067578.69921"
+            timestampString = "452291536.556592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "changeImage()"
-            landmarkType = "5">
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Glastometer/ViewController.swift"
-            timestampString = "435067578.69921"
+            timestampString = "452291536.556592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "changeImage()"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "ChangeDisplay(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,8 +47,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -95,8 +95,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -159,7 +159,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkName = "datePickerChanged(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -175,8 +175,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
-            landmarkType = "5">
+            landmarkName = "SettingsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -191,7 +191,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkName = "datePickerChanged(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -208,6 +208,54 @@
             startingLineNumber = "42"
             endingLineNumber = "42"
             landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Glastometer/CountdownCalculator.swift"
+            timestampString = "455896186.668504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "RemainingDays()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Glastometer/SettingsViewController.swift"
+            timestampString = "452291117.894997"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "datePickerChanged(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Glastometer/ViewController.swift"
+            timestampString = "452291342.087216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

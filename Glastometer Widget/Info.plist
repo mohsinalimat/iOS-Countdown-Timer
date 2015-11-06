@@ -13,7 +13,7 @@
 	<key>CFBundleIcons~ipad</key>
 	<dict/>
 	<key>CFBundleIdentifier</key>
-	<string>ZAH7QR2EX3.com.glastometer.app.Glastometer.$(PRODUCT_NAME:rfc1034identifier)Extension</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -25,13 +25,15 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionMainStoryboard</key>
 		<string>MainInterface</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
+		<key>New item</key>
+		<string>ZAH7QR2EX3.com.glastometer.app.$(PRODUCT_NAME:rfc1034identifier)Extension</string>
 	</dict>
 </dict>
 </plist>

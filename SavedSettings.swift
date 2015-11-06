@@ -11,7 +11,7 @@ import MapKit
 
 public class SavedSettings
 {
-    let TARGET_DATE:String      = "2015-06-24 08:00"
+    let TARGET_DATE:String      = "2016-06-22 08:00"
     let SHARING_MESSAGE:String  = "to Glastonbury Festival"
     let EVENT_NAME:String       = "Glastonbury"
     let SHOW_ICON_BADGE:Bool    = true

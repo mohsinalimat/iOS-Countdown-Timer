@@ -25,7 +25,6 @@
 		D85E871E1A26906E008CB434 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E871D1A26906E008CB434 /* MyAnnotation.swift */; };
 		D85E87271A2BD58E008CB434 /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E87251A2BCB87008CB434 /* DistanceCalculator.swift */; };
 		D85E87291A2BD818008CB434 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85E87281A2BD818008CB434 /* MapKit.framework */; };
-		D85E872B1A2DF154008CB434 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D85E872A1A2DF154008CB434 /* README.md */; };
 		D85FB9B41A4846B800B99A80 /* Bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = D85FB9AB1A4846B800B99A80 /* Bg1.png */; };
 		D85FB9B51A4846B800B99A80 /* Bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = D85FB9AC1A4846B800B99A80 /* Bg2.png */; };
 		D85FB9B61A4846B800B99A80 /* Bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = D85FB9AD1A4846B800B99A80 /* Bg3.png */; };
@@ -317,7 +316,8 @@
 		D85AF24B19E2B4EC00F140CC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Joe;
 				TargetAttributes = {
 					D816300E19E9C31200282D04 = {
@@ -343,6 +343,7 @@
 					};
 					D85AF26719E2B4EC00F140CC = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = ZAH7QR2EX3;
 						TestTargetID = D85AF25219E2B4EC00F140CC;
 					};
 				};
@@ -411,7 +412,6 @@
 			files = (
 				D81C42E31A0CF1140008EB84 /* SavedSettings.swift in Sources */,
 				D816302319E9CDC800282D04 /* CountdownCalculator.swift in Sources */,
-				D85E872B1A2DF154008CB434 /* README.md in Sources */,
 				D816301719E9C31200282D04 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,15 +486,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Glastometer/Glastometer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Glastometer Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZAH7QR2EX3.com.glastometer.app.ext;
 				PRODUCT_NAME = Glastometer;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -507,11 +508,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Glastometer/Glastometer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
 				INFOPLIST_FILE = "Glastometer Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZAH7QR2EX3.com.glastometer.app.ext;
 				PRODUCT_NAME = Glastometer;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -535,9 +537,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -552,12 +556,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "ca419198-64fc-431d-8fa9-d8b91474f8d2";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -578,7 +584,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -589,11 +596,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "ca419198-64fc-431d-8fa9-d8b91474f8d2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -602,10 +612,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Glastometer/Glastometer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
 				INFOPLIST_FILE = Glastometer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZAH7QR2EX3.com.glastometer.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -616,10 +628,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Glastometer/Glastometer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J Neale (ZAH7QR2EX3)";
 				INFOPLIST_FILE = Glastometer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZAH7QR2EX3.com.glastometer.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -629,6 +643,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -639,7 +655,9 @@
 				);
 				INFOPLIST_FILE = GlastometerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZAH7QR2EX3.com.glastometer.app.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glastometer.app/Glastometer";
 			};
 			name = Debug;
@@ -648,13 +666,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GlastometerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZAH7QR2EX3.com.glastometer.app.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glastometer.app/Glastometer";
 			};
 			name = Release;

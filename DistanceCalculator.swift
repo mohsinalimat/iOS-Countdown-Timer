@@ -50,12 +50,12 @@ public class DistanceCalculator : NSObject, CLLocationManagerDelegate
     }
     
     
-    public func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         NSLog(error.description)
     }
     
     
-    public func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+    public func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         currentLocation = newLocation
     }
     

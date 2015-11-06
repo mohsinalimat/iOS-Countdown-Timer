@@ -19,18 +19,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         super.preferredContentSize = CGSizeMake(0, 50);
         
-        var targetDate = SavedSettings().targetDate
+        let targetDate = SavedSettings().targetDate
         thisCountdown.Config(targetDate)
-        var rt = thisCountdown.RemainingSleeps()
+        let rt = thisCountdown.RemainingSleeps()
         
-        var numbers:String = rt.sleeps.description
-        var description:String = " \(rt.sleepsStr) " + SavedSettings().sharingMessage
+        let numbers:String = rt.sleeps.description
+        let description:String = " \(rt.sleepsStr) " + (SavedSettings().sharingMessage as String)
         
         //Initialize the mutable strings
-        var numbersMutableString = NSMutableAttributedString(string: numbers, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 36.0)!])
-        numbersMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location: 0, length: countElements(numbers)))
+        let numbersMutableString = NSMutableAttributedString(string: numbers, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 36.0)!])
+        numbersMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location: 0, length: numbers.characters.count))
         
-        var descriptionMutableString = NSMutableAttributedString(string: description, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 12.0)!])
+        let descriptionMutableString = NSMutableAttributedString(string: description, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 12.0)!])
 
         numbersMutableString.appendAttributedString(descriptionMutableString)
         mainLabel.attributedText = numbersMutableString
@@ -42,7 +42,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!)
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void))
     {
         // Perform any setup necessary in order to update the view.
 

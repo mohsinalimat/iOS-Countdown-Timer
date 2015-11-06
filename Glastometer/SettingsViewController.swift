@@ -44,8 +44,8 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         iconBadgeSwitch.setOn(showIconBadge!, animated: true)
         
         // Get the target date from NSUserDefaults
-        var targetDateString = SavedSettings().targetDate
-        var targetDate = thisCountdown.DateFromString(targetDateString)
+        let targetDateString = SavedSettings().targetDate
+        let targetDate = thisCountdown.DateFromString(targetDateString)
         
         //Set the target date in the countdown object
         thisCountdown.Config(targetDateString)
@@ -54,7 +54,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         datePicker.setDate(targetDate, animated: true)
         
         //Set the date in the change date cell
-        var dateFmt = NSDateFormatter()
+        let dateFmt = NSDateFormatter()
         dateFmt.timeZone = NSTimeZone.defaultTimeZone()
         dateFmt.dateFormat = "dd MMM yy HH:mm"
         dateDetail.text = dateFmt.stringFromDate(targetDate)
@@ -63,8 +63,8 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         datePicker.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
         //Set the eventName and shareMessage text fields
-        eventNameTextField.text = SavedSettings().eventName
-        shareMessageTextField.text = SavedSettings().sharingMessage
+        eventNameTextField.text = SavedSettings().eventName as String
+        shareMessageTextField.text = SavedSettings().sharingMessage as String
         
     }
     
@@ -79,16 +79,16 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     
     func datePickerChanged(datePicker:UIDatePicker)
     {
-        var dateFmt = NSDateFormatter()
+        let dateFmt = NSDateFormatter()
         dateFmt.timeZone = NSTimeZone.defaultTimeZone()
         dateFmt.dateFormat = "dd MMM yy HH:mm"
        
-        var dateStringDisplay = dateFmt.stringFromDate(datePicker.date)
+        let dateStringDisplay = dateFmt.stringFromDate(datePicker.date)
         NSLog(dateStringDisplay)
         dateDetail.text = dateStringDisplay
         
         dateFmt.dateFormat = "yyyy-MM-dd HH:mm"
-        var dateStringToSave = dateFmt.stringFromDate(datePicker.date)
+        let dateStringToSave = dateFmt.stringFromDate(datePicker.date)
         NSLog(dateStringToSave)
         
         SavedSettings().targetDate = dateStringToSave
@@ -139,7 +139,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     
     func resetAllSettings()
     {
-        let alertController = UIAlertController(title: "Reset Custom Settings?", message: "All settings will revert to Glastonbury Festival 2015", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: "Reset Custom Settings?", message: "All settings will revert to Glastonbury Festival 2016", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
             NSLog("Cancel Pressed")
@@ -186,13 +186,13 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         if textField == eventNameTextField
         {
             NSLog("event Name text field")
-            SavedSettings().eventName = textField.text
+            SavedSettings().eventName = textField.text!
         }
         
         if textField == shareMessageTextField
         {
             NSLog("share message text field")
-            SavedSettings().sharingMessage = textField.text
+            SavedSettings().sharingMessage = textField.text!
         }
     }
     
@@ -222,8 +222,8 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["support@Glastometer.com"])
-        mailComposerVC.setSubject("Support")
+        mailComposerVC.setToRecipients(["feedback@Glastometer.com"])
+        mailComposerVC.setSubject("Feedback")
         //mailComposerVC.setMessageBody("", isHTML: false)
         
         return mailComposerVC
@@ -238,7 +238,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         sendMailErrorAlert.show()
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
     {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }

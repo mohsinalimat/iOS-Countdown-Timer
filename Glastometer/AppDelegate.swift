@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication!, performFetchWithCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)!)
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void))
     {
         NSLog("Starting background fetch")
         iconBadge.setBadge()

@@ -25,10 +25,10 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     
     func addPinToMap(){
     
-        var location = CLLocationCoordinate2D(latitude: SavedSettings().locationLatitude.doubleValue,
+        let location = CLLocationCoordinate2D(latitude: SavedSettings().locationLatitude.doubleValue,
                                               longitude: SavedSettings().locationLongitude.doubleValue)
         
-        let annotation = MyAnnotation(coordinate: location, title: SavedSettings().eventName, subtitle: "")
+        let annotation = MyAnnotation(coordinate: location, title: SavedSettings().eventName as String, subtitle: "")
         mapView.addAnnotation(annotation)
 
         setCentreOfMapToLocation(location)
@@ -46,9 +46,9 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         //Remove all other pins
         mapView.removeAnnotations(mapView.annotations)
         
-        var touchPoint:CGPoint = longPressRec.locationInView(mapView)
-        var touchMapCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
-        let annotation = MyAnnotation(coordinate: touchMapCoordinate, title: SavedSettings().eventName, subtitle: "")
+        let touchPoint:CGPoint = longPressRec.locationInView(mapView)
+        let touchMapCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
+        let annotation = MyAnnotation(coordinate: touchMapCoordinate, title: SavedSettings().eventName as String, subtitle: "")
         mapView.addAnnotation(annotation)
        
         //Save new location to SavedSettings.

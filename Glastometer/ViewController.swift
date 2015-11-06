@@ -26,7 +26,7 @@ class ViewController: UIViewController  {
     
     let METERS_PER_MILE:Double = 1609.344
     
-//Variables *******************************************************************
+    //Variables *******************************************************************
     var currentDisplay = 1
     var backgroundImageNames: [String] = ["Bg1", "Bg2", "Bg3", "Bg4", "Bg5", "Bg6", "Bg8", "Bg9", "Bg11" ]
     var photoCount:Int = 0
@@ -39,13 +39,13 @@ class ViewController: UIViewController  {
         //backgroundImageView.image = backgroundImages[0];
 
         //Start Change image timer
-        var backgroundTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
         
         setTheTargetDate()
         updateDisplay()
         
         //Start the display update timer (1 second)
-        var displayTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateDisplay"), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateDisplay"), userInfo: nil, repeats: true)
     }
 
     
@@ -65,6 +65,9 @@ class ViewController: UIViewController  {
     
     
     func changeImage() {
+        
+        //This is a dirty fix for the ipad version (the date does not change when exiting the settings popover as ViewDidLoad is not called
+        setTheTargetDate()
         
         if (photoCount < backgroundImageNames.count - 1)
         {
@@ -109,7 +112,7 @@ class ViewController: UIViewController  {
         
         if (currentDisplay == 1)    // Display remaining Days
         {
-            var rt = thisCountdown.RemainingSleeps()
+            let rt = thisCountdown.RemainingSleeps()
             
             remainingDaysLabel.text = String(rt.sleeps)
             remainingUnitsLabel.text = rt.sleepsStr
@@ -119,8 +122,8 @@ class ViewController: UIViewController  {
         
         if (currentDisplay == 2)    // Display weeks and days
         {
-            var weeksObj = thisCountdown.RemainingWeeks()
-            var labelObj = thisCountdown.RemainingWeeksLabels()
+            let weeksObj = thisCountdown.RemainingWeeks()
+            let labelObj = thisCountdown.RemainingWeeksLabels()
             
             remainingDaysLabel.text = String(weeksObj.weeks)
             remainingUnitsLabel.text = labelObj.weeksLbl + "\r" + String(weeksObj.days) + " " + labelObj.daysLbl
@@ -136,7 +139,7 @@ class ViewController: UIViewController  {
         if (currentDisplay == 3)    // Display Days, Hours and Minutes
         {
             remainingDaysLabel.text = String(thisCountdown.RemainingDays().days)
-            var rt = thisCountdown.RemainingDaysHoursMinutes()
+            let rt = thisCountdown.RemainingDaysHoursMinutes()
             
             var unitsString: String = rt.daysStr + "\n"
             unitsString += String(rt.hours) + " " + rt.hoursStr + "\n"
@@ -152,7 +155,7 @@ class ViewController: UIViewController  {
             if (distanceCalculator.locationServicesEnabled())
             {
                 distanceCalculator.startGettingCurrentLocation()
-                var distance:String = NSString(format: "%.1f", (distanceCalculator.getRemainingDistance() / METERS_PER_MILE))
+                let distance:String = NSString(format: "%.1f", (distanceCalculator.getRemainingDistance() / METERS_PER_MILE)) as String
                 remainingDaysLabel.text = distance
                 remainingUnitsLabel.text = "Miles"
                 
@@ -175,13 +178,13 @@ class ViewController: UIViewController  {
     
     
     @IBAction func ShowActionSheetButton(sender: AnyObject) {
-        var rt = thisCountdown.RemainingDaysHoursMinutes()
+        //var rt = thisCountdown.RemainingDaysHoursMinutes()
         
-        var sharingMessageEnd = savedSettings.sharingMessage
+        let sharingMessageEnd = savedSettings.sharingMessage
         
         //Load sharing view controller with above string
         let activityViewController = UIActivityViewController(activityItems: ["\(sharingText) \(sharingMessageEnd)"], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = sender as UIView //required by iPad - so the popover has somewhere to anchor to.
+        activityViewController.popoverPresentationController?.sourceView = sender as! UIView //required by iPad - so the popover has somewhere to anchor to.
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
    

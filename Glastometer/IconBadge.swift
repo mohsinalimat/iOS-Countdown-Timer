@@ -21,14 +21,14 @@ public class IconBadge
     func setBadge()
     {
         //create an oject of UIApplication, must remember to 'import UIKit' as we're not in a ViewController.
-        var application: UIApplication = UIApplication.sharedApplication()
+        let application: UIApplication = UIApplication.sharedApplication()
         
         // Get the icon badge switch state from NSUserDefaults
-        var showIconBadge = SavedSettings().showIconBadge //defaults.objectForKey("showIconBadge") as? Bool
+        let showIconBadge = SavedSettings().showIconBadge //defaults.objectForKey("showIconBadge") as? Bool
         if (showIconBadge)
         {
             // Get the target date from NSUserDefaults
-            var targetDate = SavedSettings().targetDate //defaults.objectForKey("targetDate") as? String!
+            let targetDate = SavedSettings().targetDate //defaults.objectForKey("targetDate") as? String!
             thisCountdown.Config(targetDate)
             
             application.cancelAllLocalNotifications()
@@ -52,20 +52,20 @@ public class IconBadge
         var localNotifications: [UILocalNotification] = []
     
         //var daysRemaining: Int = thisCountdown.RemainingDays().days
-        var daysRemaining: Int = thisCountdown.RemainingDaysForBadge()
+        let daysRemaining: Int = thisCountdown.RemainingDaysForBadge()
         let date: NSDate = NSDate()
         
         for var i = 1; i < MAXIMUM_NOTIFICATIONS; i++
         {
-            var notification: UILocalNotification = UILocalNotification()
+            let notification: UILocalNotification = UILocalNotification()
             
             //Set the badge number for this notification
             notification.applicationIconBadgeNumber = daysRemaining - i
             
             //Create a firedate of midnight for this notification
-            var components = NSDateComponents()
-            components.setValue(i, forComponent: NSCalendarUnit.CalendarUnitDay);
-            var notificationFireDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(0))
+            let components = NSDateComponents()
+            components.setValue(i, forComponent: NSCalendarUnit.Day);
+            var notificationFireDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0))
             notificationFireDate = NSCalendar.currentCalendar().dateBySettingHour(0, minute: 0, second: 0, ofDate: notificationFireDate!, options: NSCalendarOptions())
             
             NSLog("\(notificationFireDate) \(daysRemaining - i)")
@@ -90,15 +90,15 @@ public class IconBadge
     //--- Test function to set the icon badge to the current time in HHmm - used to test frequency of BackgroundFetchIntervalMinimum
     func testBackgroundFetch()
     {
-        var now = NSDate()
+        let now = NSDate()
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "HHmm"
         formatter.stringFromDate(now)
         var myTime:Int
-        myTime = formatter.stringFromDate(now).toInt()!
+        myTime = Int(formatter.stringFromDate(now))!
         
-        var application: UIApplication = UIApplication.sharedApplication()
+        let application: UIApplication = UIApplication.sharedApplication()
         application.applicationIconBadgeNumber = myTime
     }
 }

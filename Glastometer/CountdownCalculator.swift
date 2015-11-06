@@ -12,7 +12,7 @@ public class CountdownCalculator
 {
     var str = "Hello, Countdown Calculator"
     
-    var targetDateTime:String = "2014-12-25 09:00"
+    var targetDateTime:String = "2015-12-25 09:00"
     var targetName = "Christmas 2015"
     
     //Constants
@@ -32,7 +32,7 @@ public class CountdownCalculator
     
     
     func DateFromString(dateStr:String, format:String="yyyy-MM-dd HH:mm") -> NSDate{
-        var dateFmt = NSDateFormatter()
+        let dateFmt = NSDateFormatter()
         dateFmt.timeZone = NSTimeZone.defaultTimeZone()
         dateFmt.dateFormat = format
         return dateFmt.dateFromString(dateStr)!
@@ -41,15 +41,16 @@ public class CountdownCalculator
     
     func RemainingDaysForBadge() -> Int
     {
-        var targetDate = DateFromString(targetDateTime)
-        let days = NSCalendar.currentCalendar().components(.CalendarUnitDay, fromDate: NSDate(), toDate: targetDate, options: nil).day
+        let targetDate = DateFromString(targetDateTime)
+        let days = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate(), toDate: targetDate, options: []).day
         return days + 1
     }
     
+    
     func RemainingSleeps() -> (sleeps: Int, sleepsStr: String)
     {
-        var targetDate = DateFromString(targetDateTime)
-        var days = NSCalendar.currentCalendar().components(.CalendarUnitDay, fromDate: NSDate(), toDate: targetDate, options: nil).day
+        let targetDate = DateFromString(targetDateTime)
+        var days = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate(), toDate: targetDate, options: []).day
         days++
         var sleepsStr = "Sleep"                     //Set up the Sleeps(s) string for display
         if (days != 1) {
@@ -62,16 +63,16 @@ public class CountdownCalculator
     
     func RemainingSeconds() -> Double
     {
-        var now = NSDate()
-        var target = DateFromString(targetDateTime)
-        var remaining = target.timeIntervalSinceDate(now)
+        let now = NSDate()
+        let target = DateFromString(targetDateTime)
+        let remaining = target.timeIntervalSinceDate(now)
         return remaining
     }
 
     
     func RemainingDays() -> (days: Int, daysStr: String)
     {
-        var remainingDays = DaysFromSeconds(RemainingSeconds())
+        let remainingDays = DaysFromSeconds(RemainingSeconds())
         
         var daysStr = "Day"                     //Set up the Day(s) string for display
         if (remainingDays != 1) {
@@ -94,8 +95,8 @@ public class CountdownCalculator
     
     func RemainingWeeks() -> (weeks: Int, days: Int)
     {
-        var remainingWeeks = RemainingDays().days / 7
-        var remainingDaysAfterWeeks = RemainingDays().days % 7
+        let remainingWeeks = RemainingDays().days / 7
+        let remainingDaysAfterWeeks = RemainingDays().days % 7
         
         return (remainingWeeks, remainingDaysAfterWeeks)
     }
@@ -103,8 +104,8 @@ public class CountdownCalculator
     
     func RemainingDaysHoursMinutes() -> (days: Int, hours: Int, minutes: Int, daysStr: String, hoursStr: String, minutesStr: String)
     {
-        var hours:Int = (Int(RemainingSeconds()) % SECONDS_PER_DAY) / SECONDS_PER_HOUR
-        var minutes:Int = ((Int(RemainingSeconds()) % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / 60
+        let hours:Int = (Int(RemainingSeconds()) % SECONDS_PER_DAY) / SECONDS_PER_HOUR
+        let minutes:Int = ((Int(RemainingSeconds()) % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / 60
         
         var hoursStr = "Hour"                     //Set up the Hour(s) string for display
         if (hours != 1) {
@@ -122,7 +123,7 @@ public class CountdownCalculator
     
     func RemainingWeeksLabels() -> (weeksLbl: String, daysLbl: String)
     {
-        var weeksDaysRemaining = RemainingWeeks()
+        let weeksDaysRemaining = RemainingWeeks()
         
         var daysStr = "Day"                     //Set up the Day(s) string for display
         if (weeksDaysRemaining.days != 1) {
