@@ -184,7 +184,7 @@ class ViewController: UIViewController  {
         
         //Load sharing view controller with above string
         let activityViewController = UIActivityViewController(activityItems: ["\(sharingText) \(sharingMessageEnd)"], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = sender as! UIView //required by iPad - so the popover has somewhere to anchor to.
+        activityViewController.popoverPresentationController?.sourceView = sender as? UIView //required by iPad - so the popover has somewhere to anchor to.
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
    
