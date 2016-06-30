@@ -39,13 +39,13 @@ class ViewController: UIViewController  {
         //backgroundImageView.image = backgroundImages[0];
 
         //Start Change image timer
-        _ = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: #selector(ViewController.changeImage), userInfo: nil, repeats: true)
         
         setTheTargetDate()
         updateDisplay()
         
         //Start the display update timer (1 second)
-        _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateDisplay"), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
     }
 
     
@@ -71,7 +71,7 @@ class ViewController: UIViewController  {
         
         if (photoCount < backgroundImageNames.count - 1)
         {
-            photoCount++
+            photoCount += 1
         } else {
             photoCount = 0
         }
@@ -97,7 +97,7 @@ class ViewController: UIViewController  {
     
     @IBAction func ChangeDisplay(sender: AnyObject) {
         //Change the currentDisplay int everytime the button is pressed
-        currentDisplay++
+        currentDisplay += 1
         if (currentDisplay > numberOfDisplays)
         {
             currentDisplay = 1

@@ -60,7 +60,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         dateDetail.text = dateFmt.stringFromDate(targetDate)
         
         //Add a target to be called when the date picker changes date.
-        datePicker.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePicker.addTarget(self, action: #selector(SettingsViewController.datePickerChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         //Set the eventName and shareMessage text fields
         eventNameTextField.text = SavedSettings().eventName as String
@@ -139,7 +139,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     
     func resetAllSettings()
     {
-        let alertController = UIAlertController(title: "Reset Custom Settings?", message: "All settings will revert to Glastonbury Festival 2016", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: "Reset Custom Settings?", message: "All settings will revert to Glastonbury Festival 2017", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
             NSLog("Cancel Pressed")

@@ -51,7 +51,7 @@ public class CountdownCalculator
     {
         let targetDate = DateFromString(targetDateTime)
         var days = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate(), toDate: targetDate, options: []).day
-        days++
+        days += 1
         var sleepsStr = "Sleep"                     //Set up the Sleeps(s) string for display
         if (days != 1) {
             sleepsStr += "s"

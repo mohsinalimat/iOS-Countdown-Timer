@@ -55,8 +55,8 @@ public class IconBadge
         let daysRemaining: Int = thisCountdown.RemainingDaysForBadge()
         let date: NSDate = NSDate()
         
-        for var i = 1; i < MAXIMUM_NOTIFICATIONS; i++
-        {
+        for i in 1..<MAXIMUM_NOTIFICATIONS {
+        //for var i = 1; i < MAXIMUM_NOTIFICATIONS; i += 1 {
             let notification: UILocalNotification = UILocalNotification()
             
             //Set the badge number for this notification
@@ -79,7 +79,8 @@ public class IconBadge
             //Stop adding notifications when the days remaining count reaches 0
             if (daysRemaining - i == 0)
             {
-                i = MAXIMUM_NOTIFICATIONS
+                //i = MAXIMUM_NOTIFICATIONS
+                break
             }
         }
         

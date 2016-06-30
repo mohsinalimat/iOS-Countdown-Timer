@@ -16,7 +16,7 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     let longPressRec = UILongPressGestureRecognizer()
     
     override func viewDidLoad() {
-        longPressRec.addTarget(self, action: "longPressedView")
+        longPressRec.addTarget(self, action: #selector(ChangeLocationViewController.longPressedView))
         mapView.addGestureRecognizer(longPressRec)
         mapView.showsUserLocation = true
         addPinToMap()
