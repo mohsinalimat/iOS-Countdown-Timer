@@ -11,7 +11,7 @@ Features:
  1. Sleeps
  2. Weeks & Days
  3. Days, Hours, Minutes
- 4. Miles
+ 4. Miles & Km
 2. Change the target date
 3. Show the remaining days in the icons badge (optional, can be switched off)
 4. Show the remaining days in the today extension
