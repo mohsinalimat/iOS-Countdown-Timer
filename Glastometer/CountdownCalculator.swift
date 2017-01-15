@@ -51,8 +51,8 @@ open class CountdownCalculator
     {
         let targetDate = DateFromString(targetDateTime)
         let days = (Calendar.current as NSCalendar).components(.day, from: Date(), to: targetDate, options: []).day! + 1
-        //days += 1
-        var sleepsStr = "Sleep"                     //Set up the Sleeps(s) string for display
+        
+        var sleepsStr = "Sleep"                 //Set up the Sleeps(s) string for display
         if (days != 1) {
             sleepsStr += "s"
         }
@@ -107,12 +107,12 @@ open class CountdownCalculator
         let hours:Int = (Int(RemainingSeconds()) % SECONDS_PER_DAY) / SECONDS_PER_HOUR
         let minutes:Int = ((Int(RemainingSeconds()) % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / 60
         
-        var hoursStr = "Hour"                     //Set up the Hour(s) string for display
+        var hoursStr = "Hour"                   //Set up the Hour(s) string for display
         if (hours != 1) {
             hoursStr += "s"
         }
 
-        var minutesStr = "Minute"                     //Set up the Minute(s) string for display
+        var minutesStr = "Minute"               //Set up the Minute(s) string for display
         if (minutes != 1) {
             minutesStr += "s"
         }

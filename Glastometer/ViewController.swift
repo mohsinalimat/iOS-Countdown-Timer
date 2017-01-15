@@ -22,11 +22,11 @@ class ViewController: UIViewController  {
     let CHANGE_BACKGROUND_TIME:Int = 20  //Seconds - Time between image changes
     let IMAGE_FADE_TIME:Int = 2         //Seconds - Animation time (to change images)
     
-    let numberOfDisplays:Int = 4
+    let numberOfDisplays:Int = 5
     
     let METERS_PER_MILE:Double = 1609.344
     
-    //Variables *******************************************************************
+//Variables *******************************************************************
     var currentDisplay = 1
     var backgroundImageNames: [String] = ["Bg1", "Bg2", "Bg3", "Bg4", "Bg5", "Bg6", "Bg8", "Bg9", "Bg11" ]
     var photoCount:Int = 0
@@ -150,7 +150,7 @@ class ViewController: UIViewController  {
             sharingText = "\(rt.days) \(rt.daysStr), \(rt.hours) \(rt.hoursStr), \(rt.minutes) \(rt.minutesStr)"
         }
         
-        if (currentDisplay == 4)
+        if (currentDisplay == 4)    // Display Miles
         {
             if (distanceCalculator.locationServicesEnabled())
             {
@@ -160,6 +160,23 @@ class ViewController: UIViewController  {
                 remainingUnitsLabel.text = "Miles"
                 
                 sharingText = "\(distance) Miles"
+            }
+            else
+            {
+                currentDisplay = 1
+                updateDisplay()
+            }
+        }
+        else if (currentDisplay == 5)   // Display Km
+        {
+            if (distanceCalculator.locationServicesEnabled())
+            {
+                distanceCalculator.startGettingCurrentLocation()
+                let distance:String = NSString(format: "%.1f", (distanceCalculator.getRemainingDistance() / 1000)) as String
+                remainingDaysLabel.text = distance
+                remainingUnitsLabel.text = "Km"
+                
+                sharingText = "\(distance) Km"
             }
             else
             {
