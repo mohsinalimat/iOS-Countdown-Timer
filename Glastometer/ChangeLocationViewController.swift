@@ -35,7 +35,7 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     }
     
     
-    func setCentreOfMapToLocation(location: CLLocationCoordinate2D){
+    func setCentreOfMapToLocation(_ location: CLLocationCoordinate2D){
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
@@ -46,8 +46,8 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
         //Remove all other pins
         mapView.removeAnnotations(mapView.annotations)
         
-        let touchPoint:CGPoint = longPressRec.locationInView(mapView)
-        let touchMapCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
+        let touchPoint:CGPoint = longPressRec.location(in: mapView)
+        let touchMapCoordinate:CLLocationCoordinate2D = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         let annotation = MyAnnotation(coordinate: touchMapCoordinate, title: SavedSettings().eventName as String, subtitle: "")
         mapView.addAnnotation(annotation)
        
@@ -59,16 +59,16 @@ class ChangeLocationViewController : UIViewController, MKMapViewDelegate
     
     
     //Change the map view with the segmented control
-    @IBAction func changeMapView(sender: AnyObject) {
+    @IBAction func changeMapView(_ sender: AnyObject) {
         
         if (sender.selectedSegmentIndex == 0){
-            mapView.mapType = MKMapType.Standard
+            mapView.mapType = MKMapType.standard
         }
         else if (sender.selectedSegmentIndex == 1){
-            mapView.mapType = MKMapType.Hybrid
+            mapView.mapType = MKMapType.hybrid
         }
         else if (sender.selectedSegmentIndex == 2){
-            mapView.mapType = .Satellite
+            mapView.mapType = .satellite
         }
     }
     

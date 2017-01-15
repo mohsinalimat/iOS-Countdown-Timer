@@ -39,17 +39,17 @@ class ViewController: UIViewController  {
         //backgroundImageView.image = backgroundImages[0];
 
         //Start Change image timer
-        _ = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: #selector(ViewController.changeImage), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: TimeInterval(CHANGE_BACKGROUND_TIME), target: self, selector: #selector(ViewController.changeImage), userInfo: nil, repeats: true)
         
         setTheTargetDate()
         updateDisplay()
         
         //Start the display update timer (1 second)
-        _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
     }
 
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         //self.navigationController?.navigationBar.translucent = true;
         
         // Put code here to set the target date... it may have just been changed in the settings TVC.
@@ -83,19 +83,19 @@ class ViewController: UIViewController  {
         //let toImage = UIImage(named: backgroundImageNames[photoCount])
         
         //using UIImage(contentsOfFile: String) function, images are not cached, keeping memory foot print much lower, ~50MB
-        let bundle = NSBundle.mainBundle()
-        let path = bundle.pathForResource(backgroundImageNames[photoCount], ofType: "png") //backgroundImageNames is an array of String of the images names ie Bg1, Bg2 etc
+        let bundle = Bundle.main
+        let path = bundle.path(forResource: backgroundImageNames[photoCount], ofType: "png") //backgroundImageNames is an array of String of the images names ie Bg1, Bg2 etc
         let toImage = UIImage(contentsOfFile: String(path!))
         
-        UIView.transitionWithView(self.backgroundImageView,
-            duration:NSTimeInterval(IMAGE_FADE_TIME),
-            options: UIViewAnimationOptions.TransitionCrossDissolve,
+        UIView.transition(with: self.backgroundImageView,
+            duration:TimeInterval(IMAGE_FADE_TIME),
+            options: UIViewAnimationOptions.transitionCrossDissolve,
             animations: { self.backgroundImageView.image = toImage },
             completion: nil)
     }
     
     
-    @IBAction func ChangeDisplay(sender: AnyObject) {
+    @IBAction func ChangeDisplay(_ sender: AnyObject) {
         //Change the currentDisplay int everytime the button is pressed
         currentDisplay += 1
         if (currentDisplay > numberOfDisplays)
@@ -177,7 +177,7 @@ class ViewController: UIViewController  {
     }
     
     
-    @IBAction func ShowActionSheetButton(sender: AnyObject) {
+    @IBAction func ShowActionSheetButton(_ sender: AnyObject) {
         //var rt = thisCountdown.RemainingDaysHoursMinutes()
         
         let sharingMessageEnd = savedSettings.sharingMessage
@@ -185,7 +185,7 @@ class ViewController: UIViewController  {
         //Load sharing view controller with above string
         let activityViewController = UIActivityViewController(activityItems: ["\(sharingText) \(sharingMessageEnd)"], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = sender as? UIView //required by iPad - so the popover has somewhere to anchor to.
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
    
     

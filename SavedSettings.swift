@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-public class SavedSettings
+open class SavedSettings
 {
     let TARGET_DATE:String      = "2017-06-21 08:00"
     let SHARING_MESSAGE:String  = "to Glastonbury Festival"
@@ -18,69 +18,69 @@ public class SavedSettings
     let LOCATION_LAT:String     = "51.155543"
     let LOCATION_LONG:String    = "-2.586368"
     
-    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+    var defaults: UserDefaults = UserDefaults(suiteName: "group.glastometer.com")!
     
     
     func ResetAllSettings()
     {
-        defaults.setObject(TARGET_DATE, forKey: "targetDate")
-        defaults.setObject(SHARING_MESSAGE, forKey: "sharingMessage")
-        defaults.setObject(EVENT_NAME, forKey: "eventName")
-        defaults.setObject(SHOW_ICON_BADGE, forKey: "showIconBadge")
-        defaults.setObject(LOCATION_LAT, forKey: "locationLatitude")
-        defaults.setObject(LOCATION_LONG, forKey: "locationLongitude")
+        defaults.set(TARGET_DATE, forKey: "targetDate")
+        defaults.set(SHARING_MESSAGE, forKey: "sharingMessage")
+        defaults.set(EVENT_NAME, forKey: "eventName")
+        defaults.set(SHOW_ICON_BADGE, forKey: "showIconBadge")
+        defaults.set(LOCATION_LAT, forKey: "locationLatitude")
+        defaults.set(LOCATION_LONG, forKey: "locationLongitude")
         defaults.synchronize()
     }
     
     var targetDate: String {
         get {   NSLog("Saved Settings Class - get - targetDate")
-                return (defaults.objectForKey("targetDate") as? String) ?? TARGET_DATE }
+                return (defaults.object(forKey: "targetDate") as? String) ?? TARGET_DATE }
         set {   NSLog("Saved Settings Class - set - targetDate")
-                defaults.setObject(newValue, forKey: "targetDate")
+                defaults.set(newValue, forKey: "targetDate")
                 defaults.synchronize() }
     }
     
     
     var sharingMessage: NSString {
         get {   NSLog("Saved Settings Class - get - sharingMessage")
-                return (defaults.objectForKey("sharingMessage") as? String) ?? SHARING_MESSAGE }
+                return (defaults.object(forKey: "sharingMessage") as? String as NSString?) ?? SHARING_MESSAGE as NSString }
         set {   NSLog("Saved Settings Class - set - sharingMessage")
-                defaults.setObject(newValue, forKey: "sharingMessage")
+                defaults.set(newValue, forKey: "sharingMessage")
                 defaults.synchronize() }
     }
     
     
     var eventName: NSString {
         get {   NSLog("Saved Settings Class - get - eventName")
-                return (defaults.objectForKey("eventName") as? String) ?? EVENT_NAME }
+                return (defaults.object(forKey: "eventName") as? String as NSString?) ?? EVENT_NAME as NSString }
         set {   NSLog("Saved Settings Class - set - eventName")
-                defaults.setObject(newValue, forKey: "eventName")
+                defaults.set(newValue, forKey: "eventName")
                 defaults.synchronize() }
     }
     
     
     var showIconBadge: Bool {
         get {   NSLog("Saved Settings Class - get - showIconBadge")
-                return (defaults.objectForKey("showIconBadge") as? Bool) ?? SHOW_ICON_BADGE }
+                return (defaults.object(forKey: "showIconBadge") as? Bool) ?? SHOW_ICON_BADGE }
         set {   NSLog("Saved Settings Class - set - showIconBadge")
-                defaults.setObject(newValue, forKey: "showIconBadge")
+                defaults.set(newValue, forKey: "showIconBadge")
                 defaults.synchronize() }
     }
     
     
     var locationLatitude: NSString {
         get {   NSLog("Saved Settings Class - get - locationLatitude")
-            return (defaults.objectForKey("locationLatitude") as? String) ?? LOCATION_LAT }
+            return (defaults.object(forKey: "locationLatitude") as? String as NSString?) ?? LOCATION_LAT as NSString }
         set {   NSLog("Saved Settings Class - set - locationLatitude")
-            defaults.setObject(newValue, forKey: "locationLatitude")
+            defaults.set(newValue, forKey: "locationLatitude")
             defaults.synchronize() }
     }
     
     var locationLongitude: NSString {
         get {   NSLog("Saved Settings Class - get - locationLongitude")
-            return (defaults.objectForKey("locationLongitude") as? String) ?? LOCATION_LONG }
+            return (defaults.object(forKey: "locationLongitude") as? String as NSString?) ?? LOCATION_LONG as NSString }
         set {   NSLog("Saved Settings Class - set - locationLongitude")
-            defaults.setObject(newValue, forKey: "locationLongitude")
+            defaults.set(newValue, forKey: "locationLongitude")
             defaults.synchronize() }
     }
 

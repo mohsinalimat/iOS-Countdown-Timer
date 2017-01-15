@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public class DistanceCalculator : NSObject, CLLocationManagerDelegate
+open class DistanceCalculator : NSObject, CLLocationManagerDelegate
 {
     var targetLocation:CLLocation
     var currentLocation:CLLocation
@@ -31,7 +31,7 @@ public class DistanceCalculator : NSObject, CLLocationManagerDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
+        if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
         }
         
@@ -39,28 +39,29 @@ public class DistanceCalculator : NSObject, CLLocationManagerDelegate
     }
     
     
-    public func getRemainingDistance() -> Double
+    open func getRemainingDistance() -> Double
     {
         targetLocation = CLLocation(latitude: SavedSettings().locationLatitude.doubleValue,
             longitude: SavedSettings().locationLongitude.doubleValue)
         NSLog("Target:  \(targetLocation.description) ")
         NSLog("Current: \(currentLocation.description)")
-        remainingDistance = targetLocation.distanceFromLocation(currentLocation)
+        remainingDistance = targetLocation.distance(from: currentLocation)
         return remainingDistance
     }
     
     
-    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        NSLog(error.description)
+    open func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        //NSLog(error)
     }
     
     
-    public func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        currentLocation = newLocation
+    open func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations[0]     // .newLocation
+        //newLocation
     }
     
     
-    public func stopGettingCurrentLocation()
+    open func stopGettingCurrentLocation()
     {
         locationManager.stopUpdatingLocation()
         locationServicesRunning = false
@@ -68,7 +69,7 @@ public class DistanceCalculator : NSObject, CLLocationManagerDelegate
     }
     
     
-    public func startGettingCurrentLocation()
+    open func startGettingCurrentLocation()
     {
         if (!locationServicesRunning)
         {
@@ -78,9 +79,9 @@ public class DistanceCalculator : NSObject, CLLocationManagerDelegate
         }
     }
     
-    public func locationServicesEnabled() -> Bool
+    open func locationServicesEnabled() -> Bool
     {
-        if  (CLLocationManager.authorizationStatus() == .Denied)
+        if  (CLLocationManager.authorizationStatus() == .denied)
         {
             return false
         }

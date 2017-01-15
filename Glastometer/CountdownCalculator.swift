@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class CountdownCalculator
+open class CountdownCalculator
 {
     var str = "Hello, Countdown Calculator"
     
@@ -20,38 +20,38 @@ public class CountdownCalculator
     let SECONDS_PER_MINUTE = 60
     let SECONDS_PER_DAY = 86400
     
-    func Config(targetDate:String)
+    func Config(_ targetDate:String)
     {
         targetDateTime = targetDate
     }
     
     
-    func DaysFromSeconds(remainingSeconds:Double) -> Int{
+    func DaysFromSeconds(_ remainingSeconds:Double) -> Int{
         return Int(remainingSeconds) / SECONDS_PER_DAY
     }
     
     
-    func DateFromString(dateStr:String, format:String="yyyy-MM-dd HH:mm") -> NSDate{
-        let dateFmt = NSDateFormatter()
-        dateFmt.timeZone = NSTimeZone.defaultTimeZone()
+    func DateFromString(_ dateStr:String, format:String="yyyy-MM-dd HH:mm") -> Date{
+        let dateFmt = DateFormatter()
+        dateFmt.timeZone = TimeZone.current
         dateFmt.dateFormat = format
-        return dateFmt.dateFromString(dateStr)!
+        return dateFmt.date(from: dateStr)!
     }
     
     
     func RemainingDaysForBadge() -> Int
     {
         let targetDate = DateFromString(targetDateTime)
-        let days = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate(), toDate: targetDate, options: []).day
-        return days + 1
+        let days = (Calendar.current as NSCalendar).components(.day, from: Date(), to: targetDate, options: []).day
+        return days! + 1
     }
     
     
     func RemainingSleeps() -> (sleeps: Int, sleepsStr: String)
     {
         let targetDate = DateFromString(targetDateTime)
-        var days = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate(), toDate: targetDate, options: []).day
-        days += 1
+        let days = (Calendar.current as NSCalendar).components(.day, from: Date(), to: targetDate, options: []).day! + 1
+        //days += 1
         var sleepsStr = "Sleep"                     //Set up the Sleeps(s) string for display
         if (days != 1) {
             sleepsStr += "s"
@@ -63,9 +63,9 @@ public class CountdownCalculator
     
     func RemainingSeconds() -> Double
     {
-        let now = NSDate()
+        let now = Date()
         let target = DateFromString(targetDateTime)
-        let remaining = target.timeIntervalSinceDate(now)
+        let remaining = target.timeIntervalSince(now)
         return remaining
     }
 

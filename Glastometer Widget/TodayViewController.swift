@@ -17,7 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        super.preferredContentSize = CGSizeMake(0, 50);
+        super.preferredContentSize = CGSize(width: 0, height: 50);
         
         let targetDate = SavedSettings().targetDate
         thisCountdown.Config(targetDate)
@@ -28,11 +28,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         //Initialize the mutable strings
         let numbersMutableString = NSMutableAttributedString(string: numbers, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 36.0)!])
-        numbersMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location: 0, length: numbers.characters.count))
+        numbersMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.green, range: NSRange(location: 0, length: numbers.characters.count))
         
         let descriptionMutableString = NSMutableAttributedString(string: description, attributes: [NSFontAttributeName:UIFont(name: "Helvetica Neue", size: 12.0)!])
 
-        numbersMutableString.appendAttributedString(descriptionMutableString)
+        numbersMutableString.append(descriptionMutableString)
         mainLabel.attributedText = numbersMutableString
     }
     
@@ -42,7 +42,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void))
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void))
     {
         // Perform any setup necessary in order to update the view.
 
@@ -50,11 +50,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
-        completionHandler(NCUpdateResult.NewData)
+        completionHandler(NCUpdateResult.newData)
     }
     
     
-    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
+    func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
     {
         return UIEdgeInsetsMake(0, 48, 0, 0) // Top, Left, Bottom, Right
     }

@@ -12,16 +12,16 @@
 import Foundation
 import UIKit
 
-public class IconBadge
+open class IconBadge
 {
     let thisCountdown = CountdownCalculator()
-    var defaults: NSUserDefaults = NSUserDefaults(suiteName: "group.glastometer.com")!
+    var defaults: UserDefaults = UserDefaults(suiteName: "group.glastometer.com")!
     let MAXIMUM_NOTIFICATIONS = 365
     
     func setBadge()
     {
         //create an oject of UIApplication, must remember to 'import UIKit' as we're not in a ViewController.
-        let application: UIApplication = UIApplication.sharedApplication()
+        let application: UIApplication = UIApplication.shared
         
         // Get the icon badge switch state from NSUserDefaults
         let showIconBadge = SavedSettings().showIconBadge //defaults.objectForKey("showIconBadge") as? Bool
@@ -53,7 +53,7 @@ public class IconBadge
     
         //var daysRemaining: Int = thisCountdown.RemainingDays().days
         let daysRemaining: Int = thisCountdown.RemainingDaysForBadge()
-        let date: NSDate = NSDate()
+        let date: Date = Date()
         
         for i in 1..<MAXIMUM_NOTIFICATIONS {
         //for var i = 1; i < MAXIMUM_NOTIFICATIONS; i += 1 {
@@ -63,10 +63,10 @@ public class IconBadge
             notification.applicationIconBadgeNumber = daysRemaining - i
             
             //Create a firedate of midnight for this notification
-            let components = NSDateComponents()
-            components.setValue(i, forComponent: NSCalendarUnit.Day);
-            var notificationFireDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0))
-            notificationFireDate = NSCalendar.currentCalendar().dateBySettingHour(0, minute: 0, second: 0, ofDate: notificationFireDate!, options: NSCalendarOptions())
+            let components = DateComponents()
+            (components as NSDateComponents).setValue(i, forComponent: NSCalendar.Unit.day);
+            var notificationFireDate = (Calendar.current as NSCalendar).date(byAdding: components, to: date, options: NSCalendar.Options(rawValue: 0))
+            notificationFireDate = (Calendar.current as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: notificationFireDate!, options: NSCalendar.Options())
             
             NSLog("\(notificationFireDate) \(daysRemaining - i)")
             
@@ -91,15 +91,15 @@ public class IconBadge
     //--- Test function to set the icon badge to the current time in HHmm - used to test frequency of BackgroundFetchIntervalMinimum
     func testBackgroundFetch()
     {
-        let now = NSDate()
+        let now = Date()
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "HHmm"
-        formatter.stringFromDate(now)
+        formatter.string(from: now)
         var myTime:Int
-        myTime = Int(formatter.stringFromDate(now))!
+        myTime = Int(formatter.string(from: now))!
         
-        let application: UIApplication = UIApplication.sharedApplication()
+        let application: UIApplication = UIApplication.shared
         application.applicationIconBadgeNumber = myTime
     }
 }

@@ -54,13 +54,13 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         datePicker.setDate(targetDate, animated: true)
         
         //Set the date in the change date cell
-        let dateFmt = NSDateFormatter()
-        dateFmt.timeZone = NSTimeZone.defaultTimeZone()
+        let dateFmt = DateFormatter()
+        dateFmt.timeZone = TimeZone.current
         dateFmt.dateFormat = "dd MMM yy HH:mm"
-        dateDetail.text = dateFmt.stringFromDate(targetDate)
+        dateDetail.text = dateFmt.string(from: targetDate)
         
         //Add a target to be called when the date picker changes date.
-        datePicker.addTarget(self, action: #selector(SettingsViewController.datePickerChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        datePicker.addTarget(self, action: #selector(SettingsViewController.datePickerChanged(_:)), for: UIControlEvents.valueChanged)
         
         //Set the eventName and shareMessage text fields
         eventNameTextField.text = SavedSettings().eventName as String
@@ -69,26 +69,26 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         NSLog("settings tvc viewWillAppear")
         //Set the location details
         locationDetails.text = "\(SavedSettings().locationLatitude), \(SavedSettings().locationLongitude)"
-        self.navigationController?.navigationBar.translucent = false;
+        self.navigationController?.navigationBar.isTranslucent = false;
     }
     
     
-    func datePickerChanged(datePicker:UIDatePicker)
+    func datePickerChanged(_ datePicker:UIDatePicker)
     {
-        let dateFmt = NSDateFormatter()
-        dateFmt.timeZone = NSTimeZone.defaultTimeZone()
+        let dateFmt = DateFormatter()
+        dateFmt.timeZone = TimeZone.current
         dateFmt.dateFormat = "dd MMM yy HH:mm"
        
-        let dateStringDisplay = dateFmt.stringFromDate(datePicker.date)
+        let dateStringDisplay = dateFmt.string(from: datePicker.date)
         NSLog(dateStringDisplay)
         dateDetail.text = dateStringDisplay
         
         dateFmt.dateFormat = "yyyy-MM-dd HH:mm"
-        let dateStringToSave = dateFmt.stringFromDate(datePicker.date)
+        let dateStringToSave = dateFmt.string(from: datePicker.date)
         NSLog(dateStringToSave)
         
         SavedSettings().targetDate = dateStringToSave
@@ -100,7 +100,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     }
 
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if (indexPath.section == SECTION_FOR_DATE && indexPath.row == ROW_FOR_DATE_PICKER)
         {
@@ -115,7 +115,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         if (indexPath.section == SECTION_FOR_DATE && indexPath.row == ROW_FOR_DATE)
         {   //The Date row was clicked, toggle the display bit and call reloadData, this then run the above function
@@ -133,21 +133,21 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
             sendEmailButtonTapped()
         }
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     
     func resetAllSettings()
     {
-        let alertController = UIAlertController(title: "Reset Custom Settings?", message: "All settings will revert to Glastonbury Festival 2017", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: "Reset Custom Settings?", message: "All settings will revert to Glastonbury Festival 2017", preferredStyle: .actionSheet)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             NSLog("Cancel Pressed")
             //Nothing to do, cancel pressed.
         }
         alertController.addAction(cancelAction)
         
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             NSLog("Ok Pressed")
            
             SavedSettings().ResetAllSettings()
@@ -156,13 +156,13 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         }
         alertController.addAction(OKAction)
         
-        self.presentViewController(alertController, animated: true) {
+        self.present(alertController, animated: true) {
             // Nothing to do here... maybe deselect this row?
         }
     }
     
     
-    @IBAction func iconBadgeSwitchPressed(sender: AnyObject)
+    @IBAction func iconBadgeSwitchPressed(_ sender: AnyObject)
     {
         showIconBadge = !showIconBadge
         
@@ -178,7 +178,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     }
     
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         NSLog("textFieldDidEndEditing")
         
         textField.resignFirstResponder()
@@ -186,18 +186,18 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         if textField == eventNameTextField
         {
             NSLog("event Name text field")
-            SavedSettings().eventName = textField.text!
+            SavedSettings().eventName = textField.text! as NSString
         }
         
         if textField == shareMessageTextField
         {
             NSLog("share message text field")
-            SavedSettings().sharingMessage = textField.text!
+            SavedSettings().sharingMessage = textField.text! as NSString
         }
     }
     
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         NSLog("textFieldShouldReturn")
         textField.resignFirstResponder()
 
@@ -211,7 +211,7 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
     {
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
-            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            self.present(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
         }
@@ -238,16 +238,16 @@ class SettingsViewController : UITableViewController, UITextFieldDelegate, UIAct
         sendMailErrorAlert.show()
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
     {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
     }
 //End of send email stuff
 
     
-    @IBAction func doneButton(sender: AnyObject) {
+    @IBAction func doneButton(_ sender: AnyObject) {
         if((self.presentingViewController) != nil){
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
